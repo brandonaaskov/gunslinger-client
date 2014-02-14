@@ -68,14 +68,16 @@ module.exports = (grunt) ->
         dest: 'client/styles'
         ext: '.css'
 
-    karma:
-      client:
-        configFile: 'client/karma.conf.js'
+    shell:
+      clientTest:
+        options:
+          stdout: true
+        command: 'karma start client/karma.conf.js'
 
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-sass'
-  grunt.loadNpmTasks 'grunt-karma'
+  grunt.loadNpmTasks 'grunt-shell'
   grunt.registerTask 'build', ['coffee', 'sass']
   grunt.registerTask 'default', ['build']
-  grunt.registerTask 'test', ['karma']
+  grunt.registerTask 'test', ['shell']
