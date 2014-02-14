@@ -1,0 +1,45 @@
+<!doctype html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>gunslingr</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="bower_components/bootstrap-sass/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="vendor/videojs/video-js.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="bower_components/lodash/dist/lodash.js"></script>
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-file-upload/angular-file-upload.js"></script>
+    <script src="bower_components/bootstrap-sass/dist/js/bootstrap.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/angularfire.js"></script>
+    <script src="vendor/videojs/video.js"></script>
+  </head>
+  <body ng-app="gunslingr">
+    <div class="container">
+      <ul class="nav nav-pills">
+        <li class="home"><a href="#">Home</a></li>
+      </ul>
+
+      <div ui-view></div>
+    </div>
+
+    <!-- app -->
+    <script src="scripts/app.js"></script>
+
+    <!-- controllers -->
+
+    <!-- directives -->
+    <script src="scripts/directives/contenteditable.js"></script>
+
+    <!-- services -->
+    <script src="scripts/services/firebase.js"></script>
+    <script src="scripts/services/zencoder.js"></script>
+</body>
+</html>
