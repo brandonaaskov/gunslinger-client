@@ -6,7 +6,7 @@
       scope: {
         onBlur: '&'
       },
-      link: function(scope, element, attrs, ctrl) {
+      link: function(scope, element, attrs, ngModel) {
         element.bind('keypress', function(event) {
           if (event.keyCode !== 13) {
             return;
@@ -16,14 +16,14 @@
         });
         element.bind("blur", function() {
           return scope.$apply(function() {
-            ctrl.$setViewValue(element.html());
+            ngModel.$setViewValue(element.html());
             return scope.onBlur();
           });
         });
-        ctrl.$render = function() {
-          return element.html(ctrl.$viewValue);
+        ngModel.$render = function() {
+          return element.html(ngModel.$viewValue);
         };
-        return ctrl.$render();
+        return ngModel.$render();
       }
     };
   });

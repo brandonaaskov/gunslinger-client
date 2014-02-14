@@ -3,7 +3,7 @@ angular.module('gunslingr').directive 'contenteditable', ->
   require: "ngModel"
   scope:
     onBlur: '&'
-  link: (scope, element, attrs, ctrl) ->
+  link: (scope, element, attrs, ngModel) ->
     # view -> model
     element.bind 'keypress', (event) ->
       return unless event.keyCode is 13 # enter key
@@ -12,12 +12,12 @@ angular.module('gunslingr').directive 'contenteditable', ->
 
     element.bind "blur", ->
       scope.$apply ->
-        ctrl.$setViewValue element.html()
+        ngModel.$setViewValue element.html()
         scope.onBlur()
 
     # model -> view
-    ctrl.$render = ->
-      element.html ctrl.$viewValue
+    ngModel.$render = ->
+      element.html ngModel.$viewValue
 
     # load init value from DOM
-    ctrl.$render()
+    ngModel.$render()

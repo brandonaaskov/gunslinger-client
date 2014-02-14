@@ -12,26 +12,22 @@
           tasks: ['test']
         },
         scripts: {
-          files: ['client/**/*.coffee', 'server/**/*.coffee'],
-          tasks: ['test']
+          files: ['client/**/*.coffee', 'server/**/*.coffee']
         },
         tests: {
-          files: ['client/tests/**/*.coffee', 'server/tests/**/*.coffee'],
-          tasks: ['test']
+          files: ['client/tests/**/*.coffee', 'server/tests/**/*.coffee']
         },
         styles: {
-          files: ['client/styles/**/*.scss'],
-          tasks: ['test']
+          files: ['client/styles/**/*.scss']
         },
         views: {
-          files: ['client/views/**/*.html'],
-          tasks: ['test']
+          files: ['client/views/**/*.html']
         }
       },
       coffee: {
         tools: {
           files: {
-            'client/karma.js': 'client/karma.coffee',
+            'client/karma.conf.js': 'client/karma.conf.coffee',
             'client/protractor.js': 'client/protractor.coffee'
           }
         },
@@ -75,13 +71,20 @@
           dest: 'client/styles',
           ext: '.css'
         }
+      },
+      karma: {
+        client: {
+          configFile: 'client/karma.conf.js'
+        }
       }
     });
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-karma');
     grunt.registerTask('build', ['coffee', 'sass']);
-    return grunt.registerTask('default', ['build']);
+    grunt.registerTask('default', ['build']);
+    return grunt.registerTask('test', ['karma']);
   };
 
 }).call(this);

@@ -1,1 +1,8 @@
-<upload></upload>
+<ul>
+  <li ng-repeat="upload in uploads"
+      contenteditable="true"
+      ng-model="upload.filename"
+      on-blur="uploads.$save(upload.id)">
+    {{upload.filename}}
+  </li>
+</ul>

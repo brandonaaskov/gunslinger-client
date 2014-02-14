@@ -14,24 +14,20 @@ module.exports = (grunt) ->
 
       scripts:
         files: ['client/**/*.coffee', 'server/**/*.coffee']
-        tasks: ['test']
 
       tests:
         files: ['client/tests/**/*.coffee', 'server/tests/**/*.coffee']
-        tasks: ['test']
 
       styles:
         files: ['client/styles/**/*.scss']
-        tasks: ['test']
 
       views:
         files: ['client/views/**/*.html']
-        tasks: ['test']
 
     coffee:
       tools:
         files:
-          'client/karma.js': 'client/karma.coffee'
+          'client/karma.conf.js': 'client/karma.conf.coffee'
           'client/protractor.js': 'client/protractor.coffee'
 
       clientTests:
@@ -72,8 +68,14 @@ module.exports = (grunt) ->
         dest: 'client/styles'
         ext: '.css'
 
+    karma:
+      client:
+        configFile: 'client/karma.conf.js'
+
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-sass'
+  grunt.loadNpmTasks 'grunt-karma'
   grunt.registerTask 'build', ['coffee', 'sass']
   grunt.registerTask 'default', ['build']
+  grunt.registerTask 'test', ['karma']

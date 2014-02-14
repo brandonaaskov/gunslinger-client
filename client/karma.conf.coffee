@@ -2,7 +2,7 @@ module.exports = (config) ->
   config.set
 
   # base path, that will be used to resolve files and exclude
-    basePath: "public"
+    basePath: ""
 
   # testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ["mocha", "sinon-chai"]
@@ -20,14 +20,15 @@ module.exports = (config) ->
       "bower_components/angularfire/angularfire.js",
       "bower_components/angular/",
       "bower_components/angular-mocks/angular-mocks.js",
-      "scripts/**/*.coffee", "tests/**/*.coffee"
+      "scripts/**/*.coffee",
+      "tests/**/*.coffee"
     ]
 
   # list of files / patterns to exclude
     exclude: []
 
   # web server port
-    port: 8080
+    port: 8008
 
   # level of logging
   # possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
@@ -44,8 +45,8 @@ module.exports = (config) ->
   # - Safari (only Mac)
   # - PhantomJS
   # - IE (only Windows)
-    browsers: ["Chrome"]
+    browsers: ["PhantomJS"]
 
   # Continuous Integration mode
   # if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: true
