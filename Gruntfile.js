@@ -86,8 +86,8 @@
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-shell');
     grunt.registerTask('build', ['coffee', 'sass']);
-    grunt.registerTask('default', ['build']);
-    return grunt.registerTask('test', ['shell']);
+    grunt.registerTask('test', ['shell:clientTest']);
+    return grunt.registerTask('default', ['build', 'test']);
   };
 
 }).call(this);

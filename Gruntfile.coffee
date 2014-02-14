@@ -79,5 +79,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-shell'
   grunt.registerTask 'build', ['coffee', 'sass']
-  grunt.registerTask 'default', ['build']
-  grunt.registerTask 'test', ['shell']
+  grunt.registerTask 'test', ['shell:clientTest']
+  grunt.registerTask 'default', ['build', 'test']
