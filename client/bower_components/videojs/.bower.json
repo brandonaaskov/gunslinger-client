@@ -1,0 +1,14 @@
+{
+  "name": "videojs",
+  "homepage": "https://github.com/videojs/video.js",
+  "version": "4.3.0",
+  "_release": "4.3.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v4.3.0",
+    "commit": "5a44bb8722065e60395e3b699564509497662cab"
+  },
+  "_source": "git://github.com/videojs/video.js.git",
+  "_target": "~4.3.0",
+  "_originalSource": "videojs"
+}
