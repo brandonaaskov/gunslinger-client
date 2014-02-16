@@ -27,8 +27,8 @@ module.exports = (grunt) ->
     coffee:
       tools:
         files:
-          'client/karma.conf.js': 'client/karma.conf.coffee'
-          'client/protractor.js': 'client/protractor.coffee'
+          'karma.conf.js': 'karma.conf.coffee'
+          'protractor.js': 'protractor.coffee'
 
       clientTests:
         expand: true
@@ -72,7 +72,7 @@ module.exports = (grunt) ->
       clientTest:
         options:
           stdout: true
-        command: 'karma start client/karma.conf.js'
+        command: 'npm test'
 
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-coffee'

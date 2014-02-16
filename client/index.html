@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width">
 
     <link rel="stylesheet" href="bower_components/bootstrap-sass/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="vendor/videojs/video-js.min.css">
     <link rel="stylesheet" href="styles/main.css">
 
@@ -31,10 +33,15 @@
         <li class="home"><a href="#">Home</a></li>
 
         <ul id="login">
-          <button class="btn btn-primary" ng-click="login('github')">Github</button>
-          <button class="btn btn-primary" ng-click="login('facebook')">Facebook</button>
-          <button class="btn btn-primary" ng-click="login('twitter')">Twitter</button>
+          <li class="btn-lg btn-social-icon btn-github" ng-click="login('github')"><i class="fa fa-github"></i></li>
+          <li class="btn-lg btn-social-icon btn-facebook" ng-click="login('facebook')"><i class="fa fa-facebook"></i></li>
+          <li class="btn-lg btn-social-icon btn-twitter" ng-click="login('twitter')"><i class="fa fa-twitter-square"></i></li>
         </ul>
+
+        <div class="account" ng-if="user">
+          <h1>Hey there, {{user.displayName}}</h1>
+          <a ng-click="logout()" class="logout">logout</a>
+        </div>
       </ul>
 
       <div ui-view></div>

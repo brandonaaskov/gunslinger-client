@@ -3,15 +3,24 @@ angular.module('gunslingr').controller 'navigationCtrl', ($scope, firebase) ->
   defaults =
     facebook:
       scope: 'email' # asking for much more is a terrible idea (unless you really need it)
-      rememberMe: false
+      rememberMe: true
     github:
       scope: 'user:email'
-      rememberMe: false
+      rememberMe: true
     twitter:
-      rememberMe: false
+      rememberMe: true
+
+  firebase.auth.$getCurrentUser().then (user) -> $scope.user = user
 
   $scope.login = (service) ->
     switch service
-      when 'facebook' then firebase.login.$login('facebook', defaults.facebook)
-      when 'github' then firebase.login.$login('github', defaults.github)
-      when 'twitter' then firebase.login.$login('twitter', defaults.twitter)
+      when 'facebook'
+        firebase.auth.$login('facebook', defaults.facebook).then (user) -> $scope.user = user
+      when 'github'
+        firebase.auth.$login('github', defaults.github).then (user) -> $scope.user = user
+      when 'twitter'
+        firebase.auth.$login('twitter', defaults.twitter).then (user) -> $scope.user = user
+
+  $scope.logout = ->
+    firebase.auth.$logout()
+    $scope.user = null

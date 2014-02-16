@@ -1,6 +1,6 @@
 {
   "name": "gunslingr",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dependencies": {},
   "devDependencies": {
     "coffee-script": "~1.6.3",
@@ -21,10 +21,9 @@
     "karma-mocha": "~0.1.1",
     "mocha": "~1.17.1",
     "karma-chai": "0.0.2",
-    "karma-sinon-chai": "~0.1.4",
-    "grunt-shell": "~0.6.4"
+    "karma-sinon-chai": "~0.1.4"
   },
   "scripts": {
-    "test": "karma start client/karma.conf.js"
+    "test": "karma start karma.conf.js"
   }
 }
