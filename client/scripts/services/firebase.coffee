@@ -1,14 +1,5 @@
-angular.module('gunslingr').service 'firebase', ($firebase, config) ->
-  getUploads: -> $firebase new Firebase(config.firebase.uploads)
-  getPlaylists: -> $firebase new Firebase(config.firebase.playlists)
-
-  login: (service, options = {}) ->
-    pointer = new Firebase(config.firebase.default)
-    auth = new FirebaseSimpleLogin(pointer)
-
-    facebookDefaults =
-      rememberMe: true
-      scope: 'email,read_friendlists'
-
-    options = _.defaults(facebookDefaults, options)
-    auth.login service, options
+angular.module('gunslingr').service 'firebase', ($firebase, $firebaseSimpleLogin, config) ->
+  login: $firebaseSimpleLogin new Firebase(config.firebase.default)
+  playlists: $firebase new Firebase(config.firebase.playlists)
+  uploads: $firebase new Firebase(config.firebase.uploads)
+  users: $firebase new Firebase(config.firebase.users)

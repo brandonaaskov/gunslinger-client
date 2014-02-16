@@ -27,15 +27,14 @@
   </head>
   <body ng-app="gunslingr">
     <div class="container">
-      <ul class="nav nav-pills">
+      <ul class="nav nav-pills" ng-controller="navigationCtrl">
         <li class="home"><a href="#">Home</a></li>
-      </ul>
 
-      <ul id="login">
-        <button class="btn btn-primary">Github</button>
-        <button class="btn btn-primary" ng-click="login('facebook')">Facebook</button>
-        <button class="btn btn-primary">Twitter</button>
-        <button class="btn btn-primary">Google</button>
+        <ul id="login">
+          <button class="btn btn-primary" ng-click="login('github')">Github</button>
+          <button class="btn btn-primary" ng-click="login('facebook')">Facebook</button>
+          <button class="btn btn-primary" ng-click="login('twitter')">Twitter</button>
+        </ul>
       </ul>
 
       <div ui-view></div>
@@ -47,6 +46,7 @@
 
     <!-- controllers -->
     <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/navigation.js"></script>
 
     <!-- directives -->
     <script src="scripts/directives/contenteditable.js"></script>
