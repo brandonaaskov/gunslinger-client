@@ -1,6 +1,7 @@
 (function() {
   angular.module('gunslingr').controller('homeCtrl', function($scope, firebase) {
-    return $scope.uploads = firebase.getUploads();
+    $scope.uploads = firebase.getUploads();
+    return $scope.login = firebase.login;
   });
 
 }).call(this);

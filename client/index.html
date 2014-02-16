@@ -14,17 +14,28 @@
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!-- todo figure out why angular-ui-router (from bower) has nothing in the release folder and no way to build it -->
+    <!--<script src="bower_components/angular-ui-router/"></script>-->
+    <script src="vendor/angular-ui-router.min.js"></script>
     <script src="bower_components/angular-file-upload/angular-file-upload.js"></script>
     <script src="bower_components/bootstrap-sass/dist/js/bootstrap.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/angularfire.js"></script>
+    <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
     <script src="vendor/videojs/video.js"></script>
   </head>
   <body ng-app="gunslingr">
     <div class="container">
       <ul class="nav nav-pills">
         <li class="home"><a href="#">Home</a></li>
+      </ul>
+
+      <ul id="login">
+        <button class="btn btn-primary">Github</button>
+        <button class="btn btn-primary" ng-click="login('facebook')">Facebook</button>
+        <button class="btn btn-primary">Twitter</button>
+        <button class="btn btn-primary">Google</button>
       </ul>
 
       <div ui-view></div>
