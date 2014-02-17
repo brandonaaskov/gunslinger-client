@@ -24,3 +24,5 @@ angular.module('gunslingr').controller 'navigationCtrl', ($scope, firebase) ->
   $scope.logout = ->
     firebase.auth.$logout()
     $scope.user = null
+
+  $scope.test = -> console.log 'test', arguments

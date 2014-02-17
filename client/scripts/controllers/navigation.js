@@ -34,9 +34,12 @@
           });
       }
     };
-    return $scope.logout = function() {
+    $scope.logout = function() {
       firebase.auth.$logout();
       return $scope.user = null;
+    };
+    return $scope.test = function() {
+      return console.log('test', arguments);
     };
   });
 

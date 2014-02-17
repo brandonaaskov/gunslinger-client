@@ -24,15 +24,17 @@ body {
   white-space:nowrap;
 }
 
-#login {
-  list-style: none;
+.nav {
+  font-size: 100%;
 
-  .login-button {
-    display: inline;
-    padding: 10px;
+    .login-button {
+      cursor: pointer;
+      color: $fs-grey-2;
+      font-size: 150%;
 
-    i {
-      font-size: 60px;
+      i {
+        font-size: 200%;
+        margin-right: 2%;
+      }
     }
-  }
 }

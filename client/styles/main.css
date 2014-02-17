@@ -5005,10 +5005,12 @@ body {
   display: inline;
   white-space: nowrap; }
 
-#login {
-  list-style: none; }
-  #login .login-button {
-    display: inline;
-    padding: 10px; }
-    #login .login-button i {
-      font-size: 60px; }
+.nav {
+  font-size: 100%; }
+  .nav .login-button {
+    cursor: pointer;
+    color: #323e4d;
+    font-size: 150%; }
+    .nav .login-button i {
+      font-size: 200%;
+      margin-right: 2%; }
