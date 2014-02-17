@@ -10,6 +10,11 @@ angular.module('gunslingr').controller 'navigationCtrl', ($scope, firebase) ->
     twitter:
       rememberMe: true
 
+  loginAsideOptions =
+    scope: $scope
+    template: 'views/aside-login.html'
+  $scope.loginAside = -> $aside(loginAsideOptions)
+
   firebase.auth.$getCurrentUser().then (user) -> $scope.user = user
 
   $scope.login = (service) ->
