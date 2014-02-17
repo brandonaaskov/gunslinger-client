@@ -207,7 +207,6 @@ table {
 
   @page {
     margin: 2cm .5cm; }
-
   p,
   h2,
   h3 {
@@ -250,7 +249,7 @@ table {
 
 html {
   font-size: 62.5%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: transparent; }
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1965,7 +1964,6 @@ input[type="button"].btn-block {
   font-family: 'Glyphicons Halflings';
   src: url("../fonts/glyphicons-halflings-regular.eot");
   src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
-
 .glyphicon {
   position: relative;
   top: 1px;
@@ -3583,7 +3581,7 @@ input[type="button"].btn-block {
 .label-default {
   background-color: #999999; }
   .label-default[href]:hover, .label-default[href]:focus {
-    background-color: gray; }
+    background-color: grey; }
 
 .label-primary {
   background-color: #428bca; }
@@ -3752,28 +3750,24 @@ a.thumbnail.active {
 
   to {
     background-position: 0 0; } }
-
 @-moz-keyframes progress-bar-stripes {
   from {
     background-position: 40px 0; }
 
   to {
     background-position: 0 0; } }
-
 @-o-keyframes progress-bar-stripes {
   from {
     background-position: 0 0; }
 
   to {
     background-position: 40px 0; } }
-
 @keyframes progress-bar-stripes {
   from {
     background-position: 40px 0; }
 
   to {
     background-position: 0 0; } }
-
 .progress {
   overflow: hidden;
   height: 20px;
@@ -4571,7 +4565,7 @@ button.close {
     border-radius: 10px;
     cursor: pointer;
     background-color: #000 \9;
-    background-color: rgba(0, 0, 0, 0); }
+    background-color: transparent; }
   .carousel-indicators .active {
     margin: 0;
     width: 12px;
@@ -4654,7 +4648,6 @@ button.close {
 
 @-ms-viewport {
   width: device-width; }
-
 .visible-xs,
 tr.visible-xs,
 th.visible-xs,
@@ -5012,99 +5005,10 @@ body {
   display: inline;
   white-space: nowrap; }
 
-.container {
-  color: #323e4d; }
-  .container tbody {
-    color: #323e4d;
-    background-color: #f4f4f4; }
-
-.page-title {
-  text-transform: uppercase;
-  color: #4c98dc;
-  text-align: center; }
-
-.nav {
-  margin: 20px 0; }
-
-.uploader {
-  width: 1410px; }
-  .uploader .upload-feedback {
-    position: relative;
-    top: 518px;
-    left: 435px;
-    width: 400px; }
-    .uploader .upload-feedback .progress {
-      height: 43px;
-      background-color: #99a3ad; }
-      .uploader .upload-feedback .progress .progress-bar-info {
-        background-color: #4c98dc; }
-    .uploader .upload-feedback h2 {
-      position: absolute;
-      top: -16px;
-      left: 72px;
-      color: #f5f7fa; }
-      .uploader .upload-feedback h2 img {
-        position: relative;
-        top: -3px; }
-
-.uploads tr:hover {
-  color: #4c98dc; }
-.uploads th {
-  text-align: center; }
-.uploads td {
-  text-align: center; }
-.uploads .state .spinner {
-  visibility: hidden;
-  margin-left: 3px;
-  display: inline-block; }
-.uploads .state.pending {
-  color: #f5aa37; }
-.uploads .state.encoding, .uploads .state.processing, .uploads .state.waiting {
-  color: #4c98dc; }
-  .uploads .state.encoding .spinner, .uploads .state.processing .spinner, .uploads .state.waiting .spinner {
-    visibility: visible; }
-.uploads .state.finished {
-  color: #9ad154; }
-.uploads .state.failed {
-  color: #ec5353; }
-.uploads .approve {
-  cursor: pointer; }
-  .uploads .approve:hover .glyphicon {
-    color: #9ad154; }
-  .uploads .approve .glyphicon {
-    color: #b0b9c2; }
-.uploads .deny {
-  cursor: pointer; }
-  .uploads .deny:hover .close {
-    color: #ec5353; }
-  .uploads .deny .close {
-    opacity: 1;
-    color: #b0b9c2;
-    float: none;
-    display: inline; }
-    .uploads .deny .close:hover {
-      color: #ec5353; }
-
-player {
-  text-align: center; }
-
-.playlist-player .playlist-thumbs {
+#login {
   list-style: none; }
-  .playlist-player .playlist-thumbs li {
-    position: relative;
-    display: inline-block;
-    margin: 10px;
-    cursor: pointer; }
-    .playlist-player .playlist-thumbs li:hover .glyphicon-play {
-      visibility: visible; }
-    .playlist-player .playlist-thumbs li img {
-      width: 150px;
-      height: 84.375px; }
-    .playlist-player .playlist-thumbs li .glyphicon-play {
-      visibility: hidden;
-      color: #020408;
-      position: absolute;
-      top: 5px;
-      left: 42px;
-      font-size: 500%;
-      opacity: .7; }
+  #login .login-button {
+    display: inline;
+    padding: 10px; }
+    #login .login-button i {
+      font-size: 60px; }
