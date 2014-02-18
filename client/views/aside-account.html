@@ -1,0 +1,72 @@
+<div class="aside account-aside" tabindex="-1" role="dialog">
+  <div class="aside-dialog">
+    <div class="aside-content" ng-controller="accountCtrl">
+      <div class="aside-header" ng-show="title">
+        <h4 class="aside-title">{{title}}</h4>
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+      </div>
+      <div class="aside-body">
+
+        <a class="logout" ng-if="auth.user" ng-click="logout()">logout</a>
+
+        <ul class="login-services">
+          <li class="login-button" ng-click="login('github'); $hide();">
+            <i class="fa fa-github-square"></i>
+          </li>
+          <li class="login-button" ng-click="login('facebook'); $hide();">
+            <i class="fa fa-facebook-square"></i>
+          </li>
+          <li class="login-button" ng-click="login('twitter'); $hide();">
+            <i class="fa fa-twitter-square"></i>
+          </li>
+        </ul>
+
+        <div class="account-details">
+          <div class="github" ng-if="user.github">
+            <h2 class="provider">Github</h2>
+            <a class="external" href="{{user.profileUrl}}"><i class="fa fa-external-link"></i></a>
+            <dl class="dl-horizontal">
+              <dt>username</dt>
+              <dd>{{user.github.username}}</dd>
+
+              <dt>email</dt>
+              <dd>{{user.github.email}}</dd>
+
+              <dt>id</dt>
+              <dd>{{user.github.id}}</dd>
+
+              <dt>name</dt>
+              <dd>{{user.github.name}}</dd>
+
+              <dt>hireable</dt>
+              <dd>{{user.github.hireable}}</dd>
+            </dl>
+          </div>
+
+          <div class="facebook" ng-if="user.facebook">
+            <h2 class="provider">Facebook</h2>
+            <a class="external" href="{{user.profileUrl}}"><i class="fa fa-external-link"></i></a>
+            <dl class="dl-horizontal">
+              <dt>username</dt>
+              <dd>{{user.facebook.username}}</dd>
+
+              <dt>email</dt>
+              <dd>{{user.facebook.email}}</dd>
+
+              <dt>id</dt>
+              <dd>{{user.facebook.id}}</dd>
+
+              <dt>name</dt>
+              <dd>{{user.facebook.first_name}} {{user.facebook.last_name}}</dd>
+
+              <dt>location</dt>
+              <dd>{{user.facebook.location.name}}</dd>
+            </dl>
+          </div>
+        </div>
+
+      </div>
+      <div class="aside-footer"></div>
+    </div>
+  </div>
+</div>
