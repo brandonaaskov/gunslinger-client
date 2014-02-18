@@ -24,17 +24,33 @@ body {
   white-space:nowrap;
 }
 
-.nav {
+#navigation {
+  .nav {
+    font-size: 100%;
+  }
+
+  .account {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 150%;
+  }
+}
+
+.login-services {
   font-size: 100%;
+  list-style: none;
+  padding: 0;
 
-    .login-button {
-      cursor: pointer;
-      color: $fs-grey-2;
-      font-size: 150%;
+  .login-button {
+    cursor: pointer;
+    color: $fs-alt1-color;
+    font-size: 150%;
+    display: inline;
 
-      i {
-        font-size: 200%;
-        margin-right: 2%;
-      }
+    i {
+      font-size: 250%;
+      margin-right: 1%;
     }
+  }
 }

@@ -10,12 +10,16 @@ angular.module('gunslingr').controller 'navigationCtrl', ($scope, firebase) ->
     twitter:
       rememberMe: true
 
-  loginAsideOptions =
-    scope: $scope
+  $scope.aside =
+    title: "Account Crap"
+    animation: 'am-fadeAndSlideLeft'
     template: 'views/aside-login.html'
-  $scope.loginAside = -> $aside(loginAsideOptions)
+    placement: 'right'
+    backdrop: true
 
-  firebase.auth.$getCurrentUser().then (user) -> $scope.user = user
+  firebase.auth.$getCurrentUser().then (user) ->
+    console.log 'user', user
+    $scope.user = user
 
   $scope.login = (service) ->
     switch service
@@ -29,5 +33,3 @@ angular.module('gunslingr').controller 'navigationCtrl', ($scope, firebase) ->
   $scope.logout = ->
     firebase.auth.$logout()
     $scope.user = null
-
-  $scope.test = -> console.log 'test', arguments
