@@ -43,8 +43,8 @@
              data-template="views/aside-account.html"
              data-title="Account Stuff"
              bs-aside>
-          <a class="login" ng-if="user === undefined" ng-click="$toggle()">Login</a>
-          <a class="display-name" ng-if="user !== undefined" ng-click="$toggle()"><i class="fa fa-gear"></i></a>
+          <a class="login" ng-if="!auth.user" ng-click="$toggle()">Login</a>
+          <a class="display-name" ng-if="auth.user" ng-click="$toggle()"><i class="fa fa-gear"></i></a>
         </div>
       </div>
 

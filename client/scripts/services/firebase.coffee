@@ -35,9 +35,6 @@ angular.module('gunslingr').service 'firebase', ($firebase, $firebaseSimpleLogin
     user[providerDetails.provider] = providerDetails
     user.$save()
 
-  setNewUser = -> user.$set "new user"
-  setNewUser() unless hasAccount(user)
-
   return {
     auth: auth
     users: users
