@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Gunslinger</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- the cake -->
     <script src="bower_components/lodash/dist/lodash.min.js"></script>
@@ -35,15 +35,15 @@
     <div class="container">
 
       <div id="navigation" ng-controller="accountCtrl">
-        <ul class="nav nav-pills">
+        <ul class="nav nav-pills" class="col-lg-10">
           <li class="home"><a href="#">Home</a></li>
         </ul>
 
-        <div class="account"
+        <div class="account col-sm-2"
              data-template="views/aside-account.html"
              data-title="Account Stuff"
              bs-aside>
-          <a class="login" ng-if="!auth.user" ng-click="$toggle()">Login</a>
+          <h5><a class="login" ng-if="!auth.user" ng-click="$toggle()">Login</a></h5>
           <a class="display-name" ng-if="auth.user" ng-click="$toggle()"><i class="fa fa-gear"></i></a>
         </div>
       </div>
