@@ -24,7 +24,7 @@
         <div class="account-details">
           <div class="github" ng-if="user.github">
             <h2 class="provider">Github</h2>
-            <a class="external" href="{{user.profileUrl}}"><i class="fa fa-external-link"></i></a>
+            <a class="external" ng-href="{{user.github.profileUrl}}"><i class="fa fa-external-link"></i></a>
             <dl class="dl-horizontal">
               <dt>username</dt>
               <dd>{{user.github.username}}</dd>
@@ -45,7 +45,7 @@
 
           <div class="facebook" ng-if="user.facebook">
             <h2 class="provider">Facebook</h2>
-            <a class="external" href="{{user.profileUrl}}"><i class="fa fa-external-link"></i></a>
+            <a class="external" ng-href="{{user.facebook.profileUrl}}"><i class="fa fa-external-link"></i></a>
             <dl class="dl-horizontal">
               <dt>username</dt>
               <dd>{{user.facebook.username}}</dd>
