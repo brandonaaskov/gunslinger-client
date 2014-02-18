@@ -8,8 +8,6 @@ angular.module('gunslingr').service 'firebase', ($firebase, $firebaseSimpleLogin
     return _.has(user, 'github') or _.has(user, 'facebook') or _.has(user, 'twitter')
 
   login = (service) ->
-    console.log 'login()'
-    
     switch service
       when 'facebook'
         auth.$login('facebook', defaults.facebook).then (user) ->

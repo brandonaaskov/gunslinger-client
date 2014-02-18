@@ -12,7 +12,6 @@
       return _.has(user, 'github') || _.has(user, 'facebook') || _.has(user, 'twitter');
     };
     login = function(service) {
-      console.log('login()');
       switch (service) {
         case 'facebook':
           return auth.$login('facebook', defaults.facebook).then(function(user) {
