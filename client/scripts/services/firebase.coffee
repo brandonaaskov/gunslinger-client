@@ -3,3 +3,7 @@ angular.module('gunslingr').service 'firebase', ($firebase, $firebaseSimpleLogin
   playlists: $firebase new Firebase(config.firebase.playlists)
   uploads: $firebase new Firebase(config.firebase.uploads)
   users: $firebase new Firebase(config.firebase.users)
+  user: (guid) ->
+    console.log "#{config.firebase.users}/#{guid}"
+    @users.$save(guid)
+    $firebase new Firebase("#{config.firebase.users}/#{guid}")
