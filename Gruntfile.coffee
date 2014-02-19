@@ -6,66 +6,46 @@ module.exports = (grunt) ->
         debounceDelay: 500
 
       tools:
-        files: [
-          '*.coffee',
-          '*.json'
-        ]
+        files: ['*.coffee', '*.json']
         tasks: ['test']
 
-      scripts:
-        files: ['client/**/*.coffee', 'server/**/*.coffee']
+      application:
+        files: ['scripts/**/*.coffee', 'vendor/**/*.coffee']
 
       tests:
-        files: ['client/tests/**/*.coffee', 'server/tests/**/*.coffee']
-
-      styles:
-        files: ['client/styles/**/*.scss']
-
-      views:
-        files: ['client/views/**/*.html']
+        files: ['tests/**/*.coffee']
 
     coffee:
       tools:
-        files:
-          'karma.conf.js': 'karma.conf.coffee'
-          'protractor.js': 'protractor.coffee'
+        files: ['*.coffee', '*.json']
 
-      clientTests:
+      tests:
         expand: true
-        cwd: 'client/tests'
+        cwd: 'tests'
         src: ['**/*.coffee']
-        dest: 'client/tests'
+        dest: 'tests'
         ext: '.js'
 
-      serverTests:
+      application:
         expand: true
-        cwd: 'server/tests'
+        cwd: 'scripts'
         src: ['**/*.coffee']
-        dest: 'server/tests'
+        dest: 'scripts'
         ext: '.js'
-
-      client:
+        
+      vendor:
         expand: true
-        cwd: 'client/scripts'
+        cwd: 'vendor'
         src: ['**/*.coffee']
-        dest: 'client/scripts'
-        ext: '.js'
-
-      server:
-        files:
-          'server/app.js': 'server/app.coffee'
-        expand: true
-        cwd: 'server/routes'
-        src: ['*.coffee']
-        dest: 'server/routes'
+        dest: 'vendor'
         ext: '.js'
 
     sass:
       files:
         expand: true
-        cwd: 'client/styles'
+        cwd: 'styles'
         src: ['*.scss']
-        dest: 'client/styles'
+        dest: 'styles'
         ext: '.css'
 
     shell:

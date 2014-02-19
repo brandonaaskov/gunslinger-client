@@ -1,0 +1,16 @@
+(function() {
+  module.exports = function(config) {
+    return config.set({
+      basePath: "client/",
+      frameworks: ["mocha", "sinon-chai"],
+      files: ["bower_components/lodash/dist/lodash.js", "bower_components/jquery/jquery.js", "bower_components/angular/angular.js", "bower_components/angular-sanitize/angular-sanitize.js", "bower_components/angular-file-upload/angular-file-upload.js", "bower_components/bootstrap-sass/dist/js/bootstrap.js", "bower_components/firebase/firebase.js", "bower_components/angularfire/angularfire.js", "bower_components/angular/", "bower_components/angular-mocks/angular-mocks.js", "vendor/angular-ui-router.min.js", "scripts/**/*.coffee", "tests/**/*.coffee"],
+      exclude: [],
+      port: 8008,
+      logLevel: config.LOG_INFO,
+      autoWatch: false,
+      browsers: ["PhantomJS"],
+      singleRun: true
+    });
+  };
+
+}).call(this);
