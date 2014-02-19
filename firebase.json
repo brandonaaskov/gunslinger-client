@@ -1,4 +1,4 @@
 {
   "firebase": "gunslinger",
-  "public": "client/"
+  "public": "."
 }

@@ -1,4 +1,4 @@
-angular.module('gunslingr').filter 'user', ->
+angular.module('gunslinger').filter 'user', ->
   user =
     name: undefined
     email: undefined

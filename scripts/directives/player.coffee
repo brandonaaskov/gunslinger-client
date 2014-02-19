@@ -1,4 +1,4 @@
-angular.module('gunslingr').directive 'player', ->
+angular.module('gunslinger').directive 'player', ->
   restrict: 'E'
   replace: false
   templateUrl: '../views/player.html'

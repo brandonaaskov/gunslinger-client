@@ -1,5 +1,5 @@
 (function() {
-  angular.module('gunslingr').controller('homeCtrl', function($scope, firebase) {
+  angular.module('gunslinger').controller('homeCtrl', function($scope, firebase) {
     return $scope.uploads = firebase.uploads;
   });
 

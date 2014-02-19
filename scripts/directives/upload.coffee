@@ -1,4 +1,4 @@
-angular.module('gunslingr').directive 'upload', ($fileUploader, $location) ->
+angular.module('gunslinger').directive 'upload', ($fileUploader, $location) ->
   restrict: 'E'
   replace: true
   templateUrl: '../views/upload.html'

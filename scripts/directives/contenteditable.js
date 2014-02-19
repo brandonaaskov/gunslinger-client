@@ -1,5 +1,5 @@
 (function() {
-  angular.module('gunslingr').directive('contenteditable', function() {
+  angular.module('gunslinger').directive('contenteditable', function() {
     return {
       restrict: 'A',
       require: "ngModel",

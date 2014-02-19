@@ -1,4 +1,4 @@
-angular.module('gunslingr', [
+angular.module('gunslinger', [
   'ngRoute'
   'firebase'
   'ngAnimate'

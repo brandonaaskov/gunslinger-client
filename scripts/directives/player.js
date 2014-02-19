@@ -1,5 +1,5 @@
 (function() {
-  angular.module('gunslingr').directive('player', function() {
+  angular.module('gunslinger').directive('player', function() {
     return {
       restrict: 'E',
       replace: false,

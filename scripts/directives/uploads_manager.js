@@ -1,5 +1,5 @@
 (function() {
-  angular.module('gunslingr').directive('uploadsManager', function($http, $timeout, $location, firebase, zencoder) {
+  angular.module('gunslinger').directive('uploadsManager', function($http, $timeout, $location, firebase, zencoder) {
     return {
       restrict: 'E',
       templateUrl: '../views/uploads_manager.html',

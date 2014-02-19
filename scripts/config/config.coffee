@@ -1,4 +1,4 @@
-angular.module('gunslingr').constant 'config',
+angular.module('gunslinger').constant 'config',
   zencoder:
     integration: ''
     read: ''

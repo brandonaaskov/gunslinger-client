@@ -1,4 +1,4 @@
-angular.module('gunslingr').service 'zencoder', ($http) ->
+angular.module('gunslinger').service 'zencoder', ($http) ->
   getJobProgress: (id, jobId) -> $http.post("videos/#{id}/#{jobId}/progress").then (response) -> return response.data
 
 .config ($httpProvider) ->

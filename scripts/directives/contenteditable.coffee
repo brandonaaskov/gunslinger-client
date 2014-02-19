@@ -1,4 +1,4 @@
-angular.module('gunslingr').directive 'contenteditable', ->
+angular.module('gunslinger').directive 'contenteditable', ->
   restrict: 'A'
   require: "ngModel"
   scope:

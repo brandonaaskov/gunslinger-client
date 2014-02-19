@@ -1,4 +1,4 @@
-angular.module('gunslingr').service 'firebase', ($firebase, $firebaseSimpleLogin, $cookies, config) ->
+angular.module('gunslinger').service 'firebase', ($firebase, $firebaseSimpleLogin, $cookies, config) ->
   auth = $firebaseSimpleLogin new Firebase(config.firebase.default)
   users = $firebase new Firebase(config.firebase.users)
   user = $firebase new Firebase("#{config.firebase.users}/#{$cookies.guid}")

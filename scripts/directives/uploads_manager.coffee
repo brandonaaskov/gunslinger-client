@@ -1,4 +1,4 @@
-angular.module('gunslingr').directive 'uploadsManager', ($http, $timeout, $location, firebase, zencoder) ->
+angular.module('gunslinger').directive 'uploadsManager', ($http, $timeout, $location, firebase, zencoder) ->
   restrict: 'E'
   templateUrl: '../views/uploads_manager.html'
   link: (scope) ->

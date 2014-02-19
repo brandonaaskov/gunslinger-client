@@ -1,2 +1,2 @@
-angular.module('gunslingr').controller 'homeCtrl', ($scope, firebase) ->
+angular.module('gunslinger').controller 'homeCtrl', ($scope, firebase) ->
   $scope.uploads = firebase.uploads

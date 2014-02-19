@@ -1,5 +1,5 @@
 (function() {
-  angular.module('gunslingr').directive('upload', function($fileUploader, $location) {
+  angular.module('gunslinger').directive('upload', function($fileUploader, $location) {
     return {
       restrict: 'E',
       replace: true,

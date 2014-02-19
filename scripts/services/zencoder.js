@@ -1,5 +1,5 @@
 (function() {
-  angular.module('gunslingr').service('zencoder', function($http) {
+  angular.module('gunslinger').service('zencoder', function($http) {
     return {
       getJobProgress: function(id, jobId) {
         return $http.post("videos/" + id + "/" + jobId + "/progress").then(function(response) {

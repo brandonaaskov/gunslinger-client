@@ -5,7 +5,7 @@
     capabilities: {
       browserName: "chrome"
     },
-    specs: ["client/tests/e2e/**/*.coffee"],
+    specs: ["tests/e2e/**/*.coffee"],
     jasmineNodeOpts: {
       showColors: true,
       defaultTimeoutInterval: 30000

@@ -1,9 +1,9 @@
-describe 'gunslingr', ->
+describe 'gunslinger', ->
 
   module = null
 
   before ->
-    module = angular.module('gunslingr')
+    module = angular.module('gunslinger')
 
   it 'should be registered', ->
     expect(module).not.to.equal(null)
@@ -14,16 +14,22 @@ describe 'gunslingr', ->
       deps.indexOf(m) >= 0
 
     before ->
-      deps = module.value('gunslingr').requires
+      deps = module.value('gunslinger').requires
 
-    it 'should include angular-ui-router', ->
-      expect(hasModule('ui.router')).to.equal(true)
+    it 'should include Angular Route', ->
+      expect(hasModule('ngRoute')).to.equal(true)
 
-    it 'should include angular-file-upload', ->
-      expect(hasModule('angularFileUpload')).to.equal(true)
+    it 'should include Angular Strap', ->
+      expect(hasModule('mgcrea.ngStrap')).to.equal(true)
 
-    it 'should include firebase', ->
+    it 'should include Firebase', ->
       expect(hasModule('firebase')).to.equal(true)
 
-  describe 'LoDash Mixins', ->
-    it '_.removeExtension() should remove an extension given a proper filename', ->
+    it 'should include ngAnimate', ->
+      expect(hasModule('ngAnimate')).to.equal(true)
+
+    it 'should include ngSanitize', ->
+      expect(hasModule('ngSanitize')).to.equal(true)
+
+    it 'should include ngCookies', ->
+      expect(hasModule('ngCookies')).to.equal(true)
