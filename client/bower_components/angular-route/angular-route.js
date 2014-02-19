@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.2.14-build.2273+sha.666137d
+ * @license AngularJS v1.2.14-build.2281+sha.a3f7017
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -16,7 +16,7 @@
  *
  * ## Example
  * See {@link ngRoute.$route#example $route} for an example of configuring and using `ngRoute`.
- * 
+ *
  * {@installModule route}
  *
  * <div doc-module-components="ngRoute"></div>
@@ -33,7 +33,7 @@ var ngRouteModule = angular.module('ngRoute', ['ng']).
  * @description
  *
  * Used for configuring routes.
- * 
+ *
  * ## Example
  * See {@link ngRoute.$route#example $route} for an example of configuring and using `ngRoute`.
  *
