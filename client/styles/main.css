@@ -207,6 +207,7 @@ table {
 
   @page {
     margin: 2cm .5cm; }
+
   p,
   h2,
   h3 {
@@ -249,7 +250,7 @@ table {
 
 html {
   font-size: 62.5%;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1964,6 +1965,7 @@ input[type="button"].btn-block {
   font-family: 'Glyphicons Halflings';
   src: url("../fonts/glyphicons-halflings-regular.eot");
   src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
+
 .glyphicon {
   position: relative;
   top: 1px;
@@ -3581,7 +3583,7 @@ input[type="button"].btn-block {
 .label-default {
   background-color: #999999; }
   .label-default[href]:hover, .label-default[href]:focus {
-    background-color: grey; }
+    background-color: gray; }
 
 .label-primary {
   background-color: #428bca; }
@@ -3750,24 +3752,28 @@ a.thumbnail.active {
 
   to {
     background-position: 0 0; } }
+
 @-moz-keyframes progress-bar-stripes {
   from {
     background-position: 40px 0; }
 
   to {
     background-position: 0 0; } }
+
 @-o-keyframes progress-bar-stripes {
   from {
     background-position: 0 0; }
 
   to {
     background-position: 40px 0; } }
+
 @keyframes progress-bar-stripes {
   from {
     background-position: 40px 0; }
 
   to {
     background-position: 0 0; } }
+
 .progress {
   overflow: hidden;
   height: 20px;
@@ -4565,7 +4571,7 @@ button.close {
     border-radius: 10px;
     cursor: pointer;
     background-color: #000 \9;
-    background-color: transparent; }
+    background-color: rgba(0, 0, 0, 0); }
   .carousel-indicators .active {
     margin: 0;
     width: 12px;
@@ -4648,6 +4654,7 @@ button.close {
 
 @-ms-viewport {
   width: device-width; }
+
 .visible-xs,
 tr.visible-xs,
 th.visible-xs,
@@ -4990,9 +4997,6 @@ td.visible-print {
   th.hidden-print,
   td.hidden-print {
     display: none !important; } }
-body {
-  background-color: white; }
-
 [contenteditable="true"].single-line {
   white-space: nowrap;
   width: 200px;
@@ -5005,32 +5009,32 @@ body {
   display: inline;
   white-space: nowrap; }
 
-#navigation .nav {
-  font-size: 100%; }
-#navigation .account {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 150%; }
+#navigation {
+  position: relative; }
+  #navigation .account {
+    position: absolute;
+    top: 10px;
+    right: 10px; }
 
 .account-aside .logout {
   text-align: right;
   display: block;
-  font-size: 100%; }
+  cursor: pointer;
+  color: #4c98dc;
+  text-decoration: none; }
+  .account-aside .logout:hover {
+    text-decoration: underline; }
 .account-aside .login-services {
   text-align: right;
-  font-size: 100%;
   list-style: none;
-  padding: 0; }
+  padding: 0;
+  font-size: 100px; }
   .account-aside .login-services .login-button {
     cursor: pointer;
     color: #245886;
-    font-size: 150%;
     display: inline; }
-    .account-aside .login-services .login-button i {
-      font-size: 250%;
-      margin-right: 1%; }
-.account-aside .account-details .provider {
-  display: inline; }
-.account-aside .account-details .external {
-  text-align: right; }
+.account-aside .account-details {
+  text-align: left; }
+  .account-aside .account-details dt {
+    margin-top: 10px;
+    text-transform: capitalize; }

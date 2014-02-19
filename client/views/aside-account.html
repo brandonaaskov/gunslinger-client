@@ -7,7 +7,7 @@
       </div>
       <div class="aside-body">
 
-        <a class="logout" ng-if="auth.user" ng-click="auth.$logout()">logout</a>
+        <h2 class="logout" ng-if="auth.user" ng-click="auth.$logout()">logout</h2>
 
         <ul class="login-services">
           <li class="login-button" ng-click="login('github'); $hide();">
@@ -21,50 +21,66 @@
           </li>
         </ul>
 
+        <h2>Add Provider Details</h2>
         <div class="account-details">
           <div class="github" ng-if="user.github">
-            <h2 class="provider">Github</h2>
-            <a class="external" ng-href="{{user.github.profileUrl}}"><i class="fa fa-external-link"></i></a>
-            <button class="btn btn-danger" ng-click="user.$remove('github')">delete provider data</button>
-            <dl class="dl-horizontal">
-              <dt>username</dt>
-              <dd>{{user.github.username}}</dd>
+            <h3 class="provider">
+              Github
+              <span class="buttons">
+                <button class="btn btn-info"
+                        ng-href="{{user.github.profileUrl}}"
+                        data-trigger="hover"
+                        data-type="info"
+                        title="Visit Github Profile"
+                        bs-tooltip>
+                  <i class="fa fa-external-link"></i>
+                </button>
 
-              <dt>email</dt>
-              <dd>{{user.github.email}}</dd>
+                <button class="btn btn-danger"
+                        ng-click="user.$remove('github')"
+                        data-trigger="hover"
+                        data-type="danger"
+                        title="Delete Github Data"
+                        bs-tooltip>
+                  <i class="fa fa-eraser"></i>
+                </button>
+              </span>
+            </h3>
 
-              <dt>id</dt>
-              <dd>{{user.github.id}}</dd>
-
-              <dt>name</dt>
-              <dd>{{user.github.name}}</dd>
-
-              <dt>hireable</dt>
-              <dd>{{user.github.hireable}}</dd>
+            <dl class="provider-properties">
+              <div class="entry"
+                   ng-if="value"
+                   ng-repeat="(key, value) in user.github | user: 'github'">
+                <dt>{{key}}</dt>
+                <dd>{{value}}</dd>
+              </div>
             </dl>
           </div>
 
           <div class="facebook" ng-if="user.facebook">
-            <h2 class="provider">Facebook</h2>
-            <a class="external" ng-href="{{user.facebook.profileUrl}}"><i class="fa fa-external-link"></i></a>
-            <button class="btn btn-danger" ng-click="user.$remove('facebook')">delete provider data</button>
-            <dl class="dl-horizontal">
-              <dt>username</dt>
-              <dd>{{user.facebook.username}}</dd>
+            <h3 class="provider">
+              Facebook
 
-              <dt>email</dt>
-              <dd>{{user.facebook.email}}</dd>
+              <a class="btn btn-info"
+                 ng-href="{{(user | user:facebook).profileUrl}}">
+                <i class="fa fa-external-link"></i>
+              </a>
 
-              <dt>id</dt>
-              <dd>{{user.facebook.id}}</dd>
+              <button class="btn btn-danger"
+                      ng-click="user.$remove('facebook')">
+                <i class="fa fa-eraser"></i>
+              </button>
+            </h3>
 
-              <dt>name</dt>
-              <dd>{{user.facebook.first_name}} {{user.facebook.last_name}}</dd>
+            <dl class="provider-properties">
+              <div class="entry"
+                   ng-if="value"
+                   ng-repeat="(key, value) in user.facebook | user: 'facebook'">
 
-              <dt>location</dt>
-              <dd>{{user.facebook.location.name}}</dd>
+                <dt>{{key}}</dt>
+                <dd>{{value}}</dd>
+              </div>
             </dl>
-          </div>
         </div>
 
       </div>
