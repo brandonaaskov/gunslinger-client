@@ -43,8 +43,8 @@
              data-template="views/aside-account.html"
              data-title="Account Stuff"
              bs-aside>
-          <h5><a class="login" ng-if="!hasAccount(auth.user)" ng-click="$toggle()">Login</a></h5>
-          <a class="display-name" ng-if="hasAccount(auth.user)" ng-click="$toggle()"><i class="fa fa-gear"></i></a>
+          <h5><a class="login" ng-if="!hasAccount(user)" ng-click="$toggle()">Login</a></h5>
+          <a class="display-name" ng-if="hasAccount(user)" ng-click="$toggle()"><i class="fa fa-gear"></i></a>
         </div>
       </div>
 
@@ -68,5 +68,6 @@
 
     <!-- filters -->
     <script src="scripts/filters/user.js"></script>
+
 </body>
 </html>

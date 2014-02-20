@@ -8,10 +8,6 @@
       if (!user) {
         return;
       }
-      console.log('user', _.has(user, 'github') || _.has(user, 'facebook') || _.has(user, 'twitter'));
-      if (!!user) {
-        console.dir(user);
-      }
       return _.has(user, 'github') || _.has(user, 'facebook') || _.has(user, 'twitter');
     };
     login = function(service) {

@@ -10,13 +10,13 @@ angular.module('gunslinger').filter 'user', ->
   processGithubUser = (data) ->
     user.name = data.name
     user.email = data.email
-    user.imageUrl = data.avatar_url
+    user.imageUrl = _.first(data.avatar_url.split('?')) + '.png'
     user.profileUrl = data.profileUrl
 
   processFacebookUser = (data) ->
     user.name = "#{data.first_name} #{data.last_name}"
     user.email = data.email
-    user.imageUrl = "http://graph.facebook.com/#{data.id}/picture"
+    user.imageUrl = "http://graph.facebook.com/#{data.id}/picture?.png"
     user.profileUrl = data.profileUrl
 
   processTwitterUser = (data) ->

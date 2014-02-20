@@ -12,13 +12,13 @@
     processGithubUser = function(data) {
       user.name = data.name;
       user.email = data.email;
-      user.imageUrl = data.avatar_url;
+      user.imageUrl = _.first(data.avatar_url.split('?')) + '.png';
       return user.profileUrl = data.profileUrl;
     };
     processFacebookUser = function(data) {
       user.name = "" + data.first_name + " " + data.last_name;
       user.email = data.email;
-      user.imageUrl = "http://graph.facebook.com/" + data.id + "/picture";
+      user.imageUrl = "http://graph.facebook.com/" + data.id + "/picture?.png";
       return user.profileUrl = data.profileUrl;
     };
     processTwitterUser = function(data) {

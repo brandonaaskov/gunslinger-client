@@ -5,8 +5,6 @@ angular.module('gunslinger').service 'firebase', ($firebase, $firebaseSimpleLogi
 
   hasAccount = (user) ->
     return unless user
-    console.log 'user', _.has(user, 'github') or _.has(user, 'facebook') or _.has(user, 'twitter')
-    console.dir user unless !user
     return _.has(user, 'github') or _.has(user, 'facebook') or _.has(user, 'twitter')
 
   login = (service) ->

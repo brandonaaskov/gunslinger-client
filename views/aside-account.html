@@ -52,7 +52,7 @@
                    ng-if="value"
                    ng-repeat="(key, value) in user.github | user: 'github'">
                 <dt>{{key}}</dt>
-                <dd>{{value}}</dd>
+                <dd ng-bind-html="value | linky:'_blank'"></dd>
               </div>
             </dl>
           </div>
@@ -78,7 +78,7 @@
                    ng-repeat="(key, value) in user.facebook | user: 'facebook'">
 
                 <dt>{{key}}</dt>
-                <dd>{{value}}</dd>
+                <dd ng-bind-html="value | linky:'_blank'"></dd>
               </div>
             </dl>
         </div>

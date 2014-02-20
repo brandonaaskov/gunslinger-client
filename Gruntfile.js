@@ -8,13 +8,15 @@
         },
         tools: {
           files: ['*.coffee', '*.json'],
-          tasks: ['test']
+          tasks: ['default']
         },
         application: {
-          files: ['scripts/**/*.coffee', 'vendor/**/*.coffee']
+          files: ['scripts/**/*.coffee', 'vendor/**/*.coffee'],
+          tasks: ['default']
         },
         tests: {
-          files: ['tests/**/*.coffee']
+          files: ['tests/**/*.coffee'],
+          tasks: ['default']
         }
       },
       coffee: {
