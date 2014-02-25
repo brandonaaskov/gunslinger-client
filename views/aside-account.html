@@ -21,68 +21,6 @@
           </li>
         </ul>
 
-        <h2>Add Provider Details</h2>
-        <div class="account-details">
-          <div class="github" ng-if="user.github">
-            <h3 class="provider">
-              Github
-              <span class="buttons">
-                <button class="btn btn-info"
-                        ng-href="{{user.github.profileUrl}}"
-                        data-trigger="hover"
-                        data-type="info"
-                        title="Visit Github Profile"
-                        bs-tooltip>
-                  <i class="fa fa-external-link"></i>
-                </button>
-
-                <button class="btn btn-danger"
-                        ng-click="user.$remove('github')"
-                        data-trigger="hover"
-                        data-type="danger"
-                        title="Delete Github Data"
-                        bs-tooltip>
-                  <i class="fa fa-eraser"></i>
-                </button>
-              </span>
-            </h3>
-
-            <dl class="provider-properties">
-              <div class="entry"
-                   ng-if="value"
-                   ng-repeat="(key, value) in user.github | user: 'github'">
-                <dt>{{key}}</dt>
-                <dd ng-bind-html="value | linky:'_blank'"></dd>
-              </div>
-            </dl>
-          </div>
-
-          <div class="facebook" ng-if="user.facebook">
-            <h3 class="provider">
-              Facebook
-
-              <a class="btn btn-info"
-                 ng-href="{{(user | user:facebook).profileUrl}}">
-                <i class="fa fa-external-link"></i>
-              </a>
-
-              <button class="btn btn-danger"
-                      ng-click="user.$remove('facebook')">
-                <i class="fa fa-eraser"></i>
-              </button>
-            </h3>
-
-            <dl class="provider-properties">
-              <div class="entry"
-                   ng-if="value"
-                   ng-repeat="(key, value) in user.facebook | user: 'facebook'">
-
-                <dt>{{key}}</dt>
-                <dd ng-bind-html="value | linky:'_blank'"></dd>
-              </div>
-            </dl>
-        </div>
-
       </div>
       <div class="aside-footer"></div>
     </div>

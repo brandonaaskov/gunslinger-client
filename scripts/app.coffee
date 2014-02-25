@@ -5,6 +5,7 @@ angular.module('gunslinger', [
   'ngSanitize'
   'ngCookies'
   'mgcrea.ngStrap'
+  'fs.collections'
   ])
 .config ($routeProvider) ->
   $routeProvider

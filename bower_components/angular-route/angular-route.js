@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.2.14-build.2290+sha.0b6ba9c
+ * @license AngularJS v1.2.14-build.2317+sha.348a771
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -64,10 +64,10 @@ function $RouteProvider(){
    *    * `path` can contain optional named groups with a question mark: e.g.`:name?`.
    *
    *    For example, routes like `/color/:color/largecode/:largecode*\/edit` will match
-   *    `/color/brown/largecode/code/with/slashs/edit` and extract:
+   *    `/color/brown/largecode/code/with/slashes/edit` and extract:
    *
    *    * `color: brown`
-   *    * `largecode: code/with/slashs`.
+   *    * `largecode: code/with/slashes`.
    *
    *
    * @param {Object} route Mapping information to be assigned to `$route.current` on route
@@ -609,7 +609,7 @@ ngRouteModule.provider('$routeParams', $RouteParamsProvider);
  * Requires the {@link ngRoute `ngRoute`} module to be installed.
  *
  * The route parameters are a combination of {@link ng.$location `$location`}'s
- * {@link ng.$location#methods_search `search()`} and {@link ng.$location#methods_path `path()`}.
+ * {@link ng.$location#search `search()`} and {@link ng.$location#path `path()`}.
  * The `path` parameters are extracted when the {@link ngRoute.$route `$route`} path is matched.
  *
  * In case of parameter name collision, `path` params take precedence over `search` params.

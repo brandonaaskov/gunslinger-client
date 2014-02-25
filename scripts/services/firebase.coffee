@@ -1,7 +1,8 @@
-angular.module('gunslinger').service 'firebase', ($firebase, $firebaseSimpleLogin, $cookies, config) ->
+angular.module('gunslinger').service 'firebase', ($firebase, $firebaseSimpleLogin, $cookies, config, $rootScope, $q) ->
   auth = $firebaseSimpleLogin new Firebase(config.firebase.default)
   users = $firebase new Firebase(config.firebase.users)
   user = $firebase new Firebase("#{config.firebase.users}/#{$cookies.guid}")
+  clock = new Firebase(config.firebase.clock)
 
   hasAccount = (user) ->
     return unless user
@@ -21,7 +22,7 @@ angular.module('gunslinger').service 'firebase', ($firebase, $firebaseSimpleLogi
 
   defaults =
     facebook:
-      scope: 'email' # asking for much more is a terrible idea (unless you really need it)
+      scope: 'user_birthday,friends_birthday' # asking for much more is a terrible idea (unless you really need it)
       rememberMe: true
     github:
       scope: 'user:email'
@@ -32,6 +33,14 @@ angular.module('gunslinger').service 'firebase', ($firebase, $firebaseSimpleLogi
   updateUser = (providerDetails) ->
     user[providerDetails.provider] = providerDetails
     user.$save()
+    $rootScope.$broadcast "userChanged", user
+
+  getServerTime = ->
+    deferred = $q.defer()
+    clock.on 'value', (snap) ->
+      offset = Date.now() + snap.val()
+      deferred.resolve(offset)
+    return deferred.promise
 
   return {
     auth: auth
@@ -39,6 +48,7 @@ angular.module('gunslinger').service 'firebase', ($firebase, $firebaseSimpleLogi
     user: user
     hasAccount: hasAccount
     login: login
+    getServerTime: getServerTime
   }
 
 .run ($cookies) ->

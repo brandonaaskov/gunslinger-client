@@ -1,8 +1,25 @@
-<ul>
-  <li ng-repeat="upload in uploads"
-      contenteditable="true"
-      ng-model="upload.filename"
-      on-blur="uploads.$save(upload.id)">
-    {{upload.filename}}
-  </li>
-</ul>
+<button class="btn btn-primary" track-event="baconbaconbacon">Track this Page</button>
+<button class="btn btn-primary" ng-click="refreshUser()">Delete Cookie and Refresh</button>
+
+<div class="current-user">
+  <h2>Current User: {{currentUser.name}}</h2>
+</div>
+
+<dl class="users dl-horizontal">
+  <div class="user" ng-repeat="user in users.models" style="margin-bottom: 50px;">
+    <dt>guid</dt>
+    <dd>{{user.guid}}</dd>
+
+    <dt>name</dt>
+    <dd>{{user.name}}</dd>
+
+    <dt>email</dt>
+    <dd>{{user.email}}</dd>
+
+    <dt>location</dt>
+    <dd>{{user.location}}</dd>
+
+    <dt>gender</dt>
+    <dd>{{user.gender}}</dd>
+  </div>
+</dl>

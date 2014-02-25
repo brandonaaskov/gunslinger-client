@@ -48,12 +48,21 @@
         </div>
       </div>
 
-      <div ui-view></div>
+      <div ng-view></div>
     </div>
 
     <!-- app -->
     <script src="scripts/app.js"></script>
     <script src="scripts/config/config.js"></script>
+
+    <!-- models/collections -->
+    <script src="vendor/fs.collections/index.js"></script>
+    <script src="vendor/fs.collections/collections/base.js.js"></script>
+    <script src="vendor/fs.collections/collections/pagination_collection.js.js"></script>
+    <script src="vendor/fs.collections/models/base.js.js"></script>
+    <script src="scripts/collections/users-collection.js"></script>
+    <script src="scripts/collections/firebase-collection.js"></script>
+    <script src="scripts/models/user-model.js"></script>
 
     <!-- controllers -->
     <script src="scripts/controllers/home.js"></script>
@@ -65,9 +74,13 @@
     <!-- services -->
     <script src="scripts/services/firebase.js"></script>
     <script src="scripts/services/zencoder.js"></script>
+    <script src="scripts/services/alerts.js"></script>
+    <script src="scripts/services/analytics.js"></script>
 
     <!-- filters -->
-    <script src="scripts/filters/user.js"></script>
 
-</body>
+    <script type="text/javascript">
+      window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(a){return function(){var t=Array.prototype.slice.call(arguments);return t.unshift(a),window.analytics.push(t),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(a){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+a+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)},window.analytics.SNIPPET_VERSION="2.0.8";
+    </script>
+  </body>
 </html>
