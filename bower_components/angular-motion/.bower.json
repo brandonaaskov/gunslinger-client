@@ -42,6 +42,6 @@
     "commit": "077d33b040bc060599aaee8f417594bb6c7e9a30"
   },
   "_source": "git://github.com/mgcrea/angular-motion.git",
-  "_target": "0.x.x",
+  "_target": "0.3.x",
   "_originalSource": "angular-motion"
 }
