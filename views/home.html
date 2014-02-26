@@ -1,15 +1,20 @@
-<button class="btn btn-primary"
-        track-event="baconbaconbacon">Track this Page</button>
-<button class="btn btn-primary"
-        ng-click="refreshUser()">Delete Cookie and Refresh</button>
+<div class="jumbotron tests">
+  <button class="btn btn-default"
+          track-event="baconbaconbacon">Track this Page</button>
 
-<button class="btn btn-primary"
-        ng-click="testAlert()">test alert</button>
+  <button class="btn btn-default"
+          ng-click="refreshUser()">Delete Cookie and Refresh</button>
 
-<div class="current-user">
-  <h2>Current User: {{currentUser.name}}</h2>
+  <button class="btn btn-default"
+          ng-click="testAlert()">test alert</button>
 </div>
 
+<div class="jumbotron current-user">
+  <!-- todo fix -->
+  <h1>Current User: {{currentUser.name}}</h1>
+</div>
+
+<!-- todo fix -->
 <dl class="users dl-horizontal">
   <div class="user" ng-repeat="user in users.models" style="margin-bottom: 50px;">
     <dt>guid</dt>
@@ -28,3 +33,24 @@
     <dd>{{user.gender}}</dd>
   </div>
 </dl>
+
+<div class="jumbotron live-sync">
+  <h1>Live Sync Test</h1>
+
+  <form role="form">
+    <div class="form-group">
+      <label for="videoLength">Video Length</label>
+      <input type="text" id="videoLength" placeholder="Video Length (in minutes)" ng-model="videoLength">
+    </div>
+
+    <div class="form-group">
+      <label for="startTime">Start Time</label>
+      <input type="text" id="startTime" placeholder="Unix Timestamp (in ms)" ng-model="startTime"><!-- todo make a datepicker -->
+    </div>
+
+    <button type="submit" class="btn btn-default" ng-click="getSeekTime(startTime, videoLength)">Get Seek Time</button>
+    Seek Time: {{seekTo}}
+  </form>
+
+  <iframe width="560" height="315" src="//www.youtube.com/embed/d_z2CA-o13U?list=PL55F8711DC8CFEA13&time=0m18s" frameborder="0" allowfullscreen></iframe>
+</div>
