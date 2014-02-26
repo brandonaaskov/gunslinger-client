@@ -41,6 +41,11 @@
             return deferred.resolve(_this.models);
           };
         })(this));
+        reference.$on('change', (function(_this) {
+          return function(keyChanged) {
+            return console.log('keyChanged', keyChanged);
+          };
+        })(this));
         return deferred.promise;
         this.currentlyFetching = false;
         return reference;

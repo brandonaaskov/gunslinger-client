@@ -7,7 +7,7 @@
           debounceDelay: 500
         },
         tools: {
-          files: ['*.coffee', '*.json'],
+          files: ['*.coffee', '*.conf.coffee', '*.json'],
           tasks: ['default']
         },
         application: {

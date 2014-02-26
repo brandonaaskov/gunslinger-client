@@ -10,13 +10,18 @@
         <h2 class="logout" ng-if="auth.user" ng-click="auth.$logout()">logout</h2>
 
         <ul class="login-services">
-          <li class="login-button" ng-click="login('github'); $hide();">
+          <li class="login-button"
+              ng-click="login('github'); $hide();">
             <i class="fa fa-github-square"></i>
           </li>
-          <li class="login-button" ng-click="login('facebook'); $hide();">
+
+          <li class="login-button"
+              ng-click="login('facebook'); $hide();">
             <i class="fa fa-facebook-square"></i>
           </li>
-          <li class="login-button" ng-click="login('twitter'); $hide();">
+
+          <li class="login-button"
+              ng-click="login('twitter'); $hide();">
             <i class="fa fa-twitter-square"></i>
           </li>
         </ul>

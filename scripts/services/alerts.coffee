@@ -1,14 +1,29 @@
-angular.module('gunslinger').service 'alerts', ($alert, $rootScope) ->
-  events = ['userChanged']
+angular.module('gunslinger').service 'alerts', ($alert, $rootScope, $interpolate) ->
+  events = [
+    name: 'userChanged'
+    title: 'Login Change'
+    content: 'The user has changed to...{{name}}'
+    type: 'info'
+    placement: 'top-right'
+    container: 'body'
+    animation: 'am-fade'
+    duration: 3
+  ,
+    name: 'test'
+    title: 'test'
+    content: 'This test and expression interpolated properly {{5 * 20}}'
+    type: 'success'
+    placement: 'top-right'
+    container: 'body'
+    animation: 'am-fade'
+    duration: 3
+  ]
 
-  _(events).each (eventName) ->
-    $rootScope.on eventName, (event) ->
-      console.log 'event fired', [eventName, event]
+  dispatch = (eventName, scope) ->
+    alertOptions = _.find events, { name: eventName }
+    alertOptions.content = $interpolate(alertOptions.content)(scope)
+    $alert alertOptions
 
-      options =
-        title: "my test alreat"
-        content: 'Best check yo self, you\'re not looking too good.'
-        placement: 'top'
-        type: 'info'
-        show: true
-      $alert(options).$show()
+  return {
+    dispatch: dispatch
+  }

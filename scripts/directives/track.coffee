@@ -1,4 +1,4 @@
-app = angular.module('hampton')
+app = angular.module('gunslinger')
 
 app.directive 'trackPage', (analytics) ->
   restrict: 'A'

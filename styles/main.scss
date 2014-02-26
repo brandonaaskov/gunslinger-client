@@ -20,6 +20,10 @@ $thumbnailHeight: ($thumbnailWidth * 720)/1280;
   white-space:nowrap;
 }
 
+.alert.top-right {
+  z-index: 1;
+}
+
 #navigation {
   position: relative;
 

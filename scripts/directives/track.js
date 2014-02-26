@@ -1,7 +1,7 @@
 (function() {
   var app;
 
-  app = angular.module('hampton');
+  app = angular.module('gunslinger');
 
   app.directive('trackPage', function(analytics) {
     return {

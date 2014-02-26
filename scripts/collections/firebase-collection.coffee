@@ -21,6 +21,9 @@ angular.module('gunslinger').factory 'FirebaseCollection', (BaseCollection, Base
         @add collection
         deferred.resolve(@models)
 
+      reference.$on 'change', (keyChanged) =>
+        console.log 'keyChanged', keyChanged
+
       return deferred.promise
 
       @currentlyFetching = false

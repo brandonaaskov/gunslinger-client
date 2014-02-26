@@ -6,7 +6,15 @@ angular.module('gunslinger').constant 'config',
     full: ''
   firebase:
     default: 'https://gunslinger.firebaseio.com/'
-    uploads: 'https://gunslinger.firebaseio.com/uploads'
-    playlists: 'https://gunslinger.firebaseio.com/playlists'
-    users: 'https://gunslinger.firebaseio.com/users'
+    users: 'https://gunslinger.firebaseio.com/users/basic'
+    usersComplete: 'https://gunslinger.firebaseio.com/users/complete'
     clock: 'https://gunslinger.firebaseio.com/.info/serverTimeOffset'
+    auth:
+      facebook:
+        scope: 'user_birthday,friends_birthday' # asking for much more is a terrible idea (unless you really need it)
+        rememberMe: true
+      github:
+        scope: 'user:email'
+        rememberMe: true
+      twitter:
+        rememberMe: true

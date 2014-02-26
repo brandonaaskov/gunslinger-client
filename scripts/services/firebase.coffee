@@ -1,39 +1,5 @@
-angular.module('gunslinger').service 'firebase', ($firebase, $firebaseSimpleLogin, $cookies, config, $rootScope, $q) ->
-  auth = $firebaseSimpleLogin new Firebase(config.firebase.default)
-  users = $firebase new Firebase(config.firebase.users)
-  user = $firebase new Firebase("#{config.firebase.users}/#{$cookies.guid}")
+angular.module('gunslinger').service 'firebase', ($firebase, $cookies, config, $rootScope, $q) ->
   clock = new Firebase(config.firebase.clock)
-
-  hasAccount = (user) ->
-    return unless user
-    return _.has(user, 'github') or _.has(user, 'facebook') or _.has(user, 'twitter')
-
-  login = (service) ->
-    switch service
-      when 'facebook'
-        auth.$login('facebook', defaults.facebook).then (user) ->
-          updateUser(user)
-      when 'github'
-        auth.$login('github', defaults.github).then (user) ->
-          updateUser(user)
-      when 'twitter'
-        auth.$login('twitter', defaults.twitter).then (user) ->
-          updateUser(user)
-
-  defaults =
-    facebook:
-      scope: 'user_birthday,friends_birthday' # asking for much more is a terrible idea (unless you really need it)
-      rememberMe: true
-    github:
-      scope: 'user:email'
-      rememberMe: true
-    twitter:
-      rememberMe: true
-
-  updateUser = (providerDetails) ->
-    user[providerDetails.provider] = providerDetails
-    user.$save()
-    $rootScope.$broadcast "userChanged", user
 
   getServerTime = ->
     deferred = $q.defer()
@@ -43,11 +9,7 @@ angular.module('gunslinger').service 'firebase', ($firebase, $firebaseSimpleLogi
     return deferred.promise
 
   return {
-    auth: auth
-    users: users
-    user: user
-    hasAccount: hasAccount
-    login: login
+    users: $firebase new Firebase(config.firebase.users)
     getServerTime: getServerTime
   }
 

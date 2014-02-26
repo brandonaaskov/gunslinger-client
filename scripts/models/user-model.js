@@ -21,25 +21,15 @@
 
       UserModel.prototype.profileUrl = void 0;
 
-      UserModel.prototype.github = void 0;
-
-      UserModel.prototype.facebook = void 0;
-
-      UserModel.prototype.twitter = void 0;
-
       function UserModel(firebaseUser) {
-        var merged;
+        var _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
         this.guid = firebaseUser != null ? firebaseUser.id : void 0;
-        this.github = firebaseUser != null ? firebaseUser.github : void 0;
-        this.facebook = firebaseUser != null ? firebaseUser.facebook : void 0;
-        this.twitter = firebaseUser != null ? firebaseUser.twitter : void 0;
-        merged = _(this.twitter).defaults(this.facebook).defaults(this.github).value();
-        this.merged = merged;
-        this.name = merged != null ? merged.displayName : void 0;
-        this.imageUrl = merged != null ? merged.avatar_url : void 0;
-        this.location = merged != null ? merged.location : void 0;
-        this.gender = merged != null ? merged.gender : void 0;
-        this.profileUrl = merged != null ? merged.profileUrl : void 0;
+        this.email = (_ref = firebaseUser.basic) != null ? _ref.email : void 0;
+        this.name = (_ref1 = firebaseUser.basic) != null ? _ref1.name : void 0;
+        this.imageUrl = (_ref2 = firebaseUser.basic) != null ? _ref2.imageUrl : void 0;
+        this.location = (_ref3 = firebaseUser.basic) != null ? _ref3.location : void 0;
+        this.gender = (_ref4 = firebaseUser.basic) != null ? _ref4.gender : void 0;
+        this.profileUrl = (_ref5 = firebaseUser.basic) != null ? _ref5.profileUrl : void 0;
       }
 
       return UserModel;
