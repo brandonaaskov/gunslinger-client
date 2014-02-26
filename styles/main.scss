@@ -51,14 +51,27 @@ $thumbnailHeight: ($thumbnailWidth * 720)/1280;
     text-align: right;
     list-style: none;
     padding: 0;
-    font-size: 80px;
 
     .login-button {
       cursor: pointer;
       color: $fs-alt1-color;
-      display: inline;
+      margin-bottom: 15px;
 
-      i {
+      button {
+        width: 280px;
+        text-align: left;
+
+        .label {
+          font-size: 20px;
+          font-weight: normal;
+          position: relative;
+          top: -5px;
+        }
+
+        i.fa {
+          font-size: 35px;
+          margin-right: 0px;
+        }
       }
     }
   }

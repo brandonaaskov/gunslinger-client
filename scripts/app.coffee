@@ -3,6 +3,7 @@ angular.module('gunslinger', [
   'ngSanitize'
   'ngCookies'
   'firebase'
+  'ngAnimate'
   'mgcrea.ngStrap'
   'fs.collections'
   ])

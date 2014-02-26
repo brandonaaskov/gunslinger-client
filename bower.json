@@ -2,7 +2,7 @@
   "name": "gunslinger-client",
   "version": "0.2.1",
   "dependencies": {
-    "angular": "1.x.x",
+    "angular": "1.2.13",
     "lodash": "2.x.x",
     "jquery": "2.x.x",
     "bootstrap-sass": "3.x.x",
@@ -11,8 +11,8 @@
     "videojs": "4.x.x",
     "firebase-simple-login": "1.x.x",
     "font-awesome": "4.x.x",
-    "angular-route": "~1.2.13",
-    "angular-animate": "~1.2.13",
+    "angular-route": "1.2.13",
+    "angular-animate": "1.2.13",
     "angular-motion": "0.3.x",
     "angular-cookies": "1.x.x",
     "angular-strap": "~0.7.8"

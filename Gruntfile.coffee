@@ -7,11 +7,15 @@ module.exports = (grunt) ->
 
       tools:
         files: ['*.coffee', '*.conf.coffee', '*.json']
-        tasks: ['default']
+        tasks: ['coffee']
 
       application:
         files: ['scripts/**/*.coffee', 'vendor/**/*.coffee']
         tasks: ['default']
+
+      styles:
+        files: ['styles/**/*.scss']
+        tasks: ['sass']
 
       tests:
         files: ['tests/**/*.coffee']
