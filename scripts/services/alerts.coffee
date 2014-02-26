@@ -15,7 +15,7 @@ angular.module('gunslinger').service 'alerts', ($alert, $rootScope, $interpolate
     type: 'success'
     placement: 'top-right'
     container: 'body'
-    animation: 'am-fade'
+    animation: 'am-slide-right'
     duration: 3
   ]
 
