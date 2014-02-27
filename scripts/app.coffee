@@ -6,6 +6,7 @@ angular.module('gunslinger', [
   'ngAnimate'
   'mgcrea.ngStrap'
   'fs.collections'
+  'angularFileUpload'
   ])
 .config ($routeProvider) ->
   $routeProvider

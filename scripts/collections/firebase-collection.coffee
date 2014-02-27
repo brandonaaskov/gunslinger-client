@@ -1,7 +1,6 @@
 angular.module('gunslinger').factory 'FirebaseCollection', (BaseCollection, BaseModel, $firebase, config, $q) ->
   return class FirebaseCollection extends BaseCollection
     model: BaseModel
-    url: config.firebase.default
 
     constructor: (models = [], url) ->
       if url then @url = url

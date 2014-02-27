@@ -29,6 +29,10 @@ angular.module('gunslinger').service 'auth', ($firebase, $firebaseSimpleLogin, $
     user.complete[providerDetails.provider] = providerDetails
     user.complete.$save()
 
+  getUser = (guid) -> $firebase new Firebase("#{config.firebase.users}/basic/#{$cookies.guid}")
+
+  getCurrentUser = -> auth.$getCurrentUser().then (user) -> return user
+
   updateBasic = ->
     merged = _({})
       .defaults(user.complete?.twitter)
@@ -52,5 +56,6 @@ angular.module('gunslinger').service 'auth', ($firebase, $firebaseSimpleLogin, $
     login: login
     hasAccount: hasAccount
     user: user.basic
-    getCurrentUser: -> auth.$getCurrentUser().then (user) -> return user
+    getCurrentUser: getCurrentUser
+    getUser: getUser
   }

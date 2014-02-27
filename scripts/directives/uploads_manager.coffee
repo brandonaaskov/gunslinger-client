@@ -1,8 +1,8 @@
 angular.module('gunslinger').directive 'uploadsManager', ($http, $timeout, $location, firebase, zencoder) ->
   restrict: 'E'
-  templateUrl: '../views/uploads_manager.html'
+  templateUrl: 'views/uploads_manager.html'
   link: (scope) ->
-    scope.uploads = firebase.getUploads()
+    scope.uploads = firebase.uploads
     scope.uploads.$on 'loaded', ->
       updateAllInWork()
 

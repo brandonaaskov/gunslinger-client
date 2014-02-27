@@ -85,3 +85,15 @@ $thumbnailHeight: ($thumbnailWidth * 720)/1280;
     }
   }
 }
+
+.uploader {
+  .upload-dropper {
+    border: 1px dashed $fs-grey-9;
+    height: 100px;
+
+    .instructions {
+      text-align: center;
+      color: $fs-grey-5;
+    }
+  }
+}

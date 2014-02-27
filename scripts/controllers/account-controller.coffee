@@ -1,3 +1,5 @@
 angular.module('gunslinger').controller 'accountCtrl', ($scope, auth) ->
-  $scope.user = auth.getCurrentUser()
+  auth.getCurrentUser().then (user) ->
+    $scope.currentUser = user
+
   $scope.login = auth.login

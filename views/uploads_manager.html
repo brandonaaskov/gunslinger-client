@@ -1,0 +1,31 @@
+<table class="uploads table table-hover">
+  <thead>
+    <tr>
+      <th>Watch</th>
+      <th>ID</th>
+      <th>Filename</th>
+      <th>Job State</th>
+      <th>Approve</th>
+      <th>Deny</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="(key, upload) in uploads">
+      <td>
+        <a ng-if="upload.state === 'finished'" ng-href="#/watch/{{upload.id}}">watch</a>
+      </td>
+      <td class="id">{{key}}</td>
+      <td class="name single-line" contenteditable="true" ng-model="upload.filename" on-blur="uploads.$save(upload.id)">{{upload.filename}}</td>
+      <td class="state" ng-class="upload.state">
+        {{upload.state}}<img class="spinner" src="../images/processing.gif" width="20" height="20" />
+        <span ng-show="upload.progress >= 0">{{upload.progress | number:0}}%</span>
+      </td>
+      <td class="approve">
+        <span ng-click="kickOffJob(key)" class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td class="deny">
+        <button ng-click="removeUpload(key);$event.stopPropagation()" type="button" class="close" aria-hidden="true">&times;</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

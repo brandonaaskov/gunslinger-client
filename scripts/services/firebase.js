@@ -14,6 +14,7 @@
     };
     return {
       users: $firebase(new Firebase(config.firebase.users)),
+      uploads: $firebase(new Firebase(config.firebase.uploads)),
       getServerTime: getServerTime
     };
   }).run(function($cookies) {

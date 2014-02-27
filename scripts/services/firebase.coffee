@@ -10,6 +10,7 @@ angular.module('gunslinger').service 'firebase', ($firebase, $cookies, config, $
 
   return {
     users: $firebase new Firebase(config.firebase.users)
+    uploads: $firebase new Firebase(config.firebase.uploads)
     getServerTime: getServerTime
   }
 

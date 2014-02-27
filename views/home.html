@@ -1,3 +1,7 @@
+<div class="jumbotron upload" ng-file-drop>
+  <upload></upload>
+</div>
+
 <div class="jumbotron tests">
   <button class="btn btn-default"
           track-event="baconbaconbacon">Track this Page</button>
@@ -9,9 +13,9 @@
           ng-click="testAlert()">test alert</button>
 </div>
 
-<div class="jumbotron current-user">
-  <!-- todo fix -->
-  <h1>Current User: {{currentUser.name}}</h1>
+<div class="jumbotron current-user" ng-controller="accountCtrl" ng-show="currentUser.displayName">
+  <h1>Current User</h1>
+  <h2>{{currentUser.displayName}}</h2>
 </div>
 
 <!-- todo fix -->

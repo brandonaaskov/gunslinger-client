@@ -23,7 +23,8 @@
     "angular-sanitize": "1.x.x"
   },
   "resolutions": {
-    "angular": "1.x.x",
-    "bootstrap": ">=3.0 <4.0"
+    "angular": "1.2.13",
+    "bootstrap": ">=3.0 <4.0",
+    "jquery": "2.x.x"
   }
 }

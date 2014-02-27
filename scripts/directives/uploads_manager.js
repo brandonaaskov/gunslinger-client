@@ -2,10 +2,10 @@
   angular.module('gunslinger').directive('uploadsManager', function($http, $timeout, $location, firebase, zencoder) {
     return {
       restrict: 'E',
-      templateUrl: '../views/uploads_manager.html',
+      templateUrl: 'views/uploads_manager.html',
       link: function(scope) {
         var getUploadsForState, updateAllInWork, updateUploads;
-        scope.uploads = firebase.getUploads();
+        scope.uploads = firebase.uploads;
         scope.uploads.$on('loaded', function() {
           return updateAllInWork();
         });

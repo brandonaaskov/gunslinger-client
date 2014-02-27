@@ -5044,3 +5044,10 @@ td.visible-print {
   .account-aside .account-details dt {
     margin-top: 10px;
     text-transform: capitalize; }
+
+.uploader .upload-dropper {
+  border: 1px dashed #c7ced6;
+  height: 100px; }
+  .uploader .upload-dropper .instructions {
+    text-align: center;
+    color: #6d7885; }

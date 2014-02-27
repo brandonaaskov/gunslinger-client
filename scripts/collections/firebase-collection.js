@@ -9,8 +9,6 @@
 
       FirebaseCollection.prototype.model = BaseModel;
 
-      FirebaseCollection.prototype.url = config.firebase["default"];
-
       function FirebaseCollection(models, url) {
         if (models == null) {
           models = [];
