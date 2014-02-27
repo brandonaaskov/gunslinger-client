@@ -11,7 +11,7 @@ angular.module('gunslinger').directive 'upload', ($fileUploader, firebase) ->
         ["starts-with", "$key", "uploads/"],
         {"acl": "public-read"}
       ]
-    awsSecret = 'opZbwB+4r3cg46n/aWtjeNAokW65MucPKvtxg4Uz'
+    
     policy = btoa JSON.stringify(awsPolicy)
     signature = b64_hmac_sha1(awsSecret, policy) + '=' # not sure why this function doesn't add the needed equals sign at the end
 
