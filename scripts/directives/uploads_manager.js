@@ -6,7 +6,10 @@
       link: function(scope) {
         var getUploadsForState, updateAllInWork, updateUploads;
         scope.uploads = firebase.uploads;
-        scope.uploads.$on('loaded', function() {
+        scope.uploads.$bind(scope, 'uploads');
+        scope.uploads.$on('loaded', function(resultSet) {
+          scope.uploads = resultSet;
+          console.dir(resultSet);
           return updateAllInWork();
         });
         getUploadsForState = function(collection, state) {
@@ -40,20 +43,10 @@
         return scope.updateAllInWork = updateAllInWork;
       },
       controller: function($scope) {
-        $scope.kickOffJob = function(videoId) {
-          return $http.post("videos/" + videoId + "/publish").then(function(response) {
-            return $scope.updateAllInWork();
-          });
+        $scope.remove = function(key) {
+          return firebase.uploads.$remove(key);
         };
-        $scope.removeUpload = function(id) {
-          return $http["delete"]("videos/" + id);
-        };
-        return $scope.watch = function(id, state) {
-          if (state !== 'finished') {
-            return;
-          }
-          return $location.path("/watch/" + id);
-        };
+        return $scope.kickOffJob = function(videoId) {};
       }
     };
   });

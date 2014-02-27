@@ -24,6 +24,8 @@ angular.module('gunslinger').directive 'upload', ($fileUploader, firebase) ->
         policy: policy,
         signature: signature
       ]
+      autoUpload: true
+      removeAfterUpload: true
 
     uploader.bind 'complete', (scope, xhr, uploaderRef) -> uploads.$add uploaderRef.file
     scope.uploader = uploader

@@ -2,14 +2,18 @@
   <upload></upload>
 </div>
 
+<div class="jumbotron uploads-manager">
+  <uploads-manager></uploads-manager>
+</div>
+
 <div class="jumbotron tests">
-  <button class="btn btn-default"
+  <button class="btn btn-default btn-lg"
           track-event="baconbaconbacon">Track this Page</button>
 
-  <button class="btn btn-default"
+  <button class="btn btn-default btn-lg"
           ng-click="refreshUser()">Delete Cookie and Refresh</button>
 
-  <button class="btn btn-default"
+  <button class="btn btn-default btn-lg"
           ng-click="testAlert()">test alert</button>
 </div>
 
@@ -52,9 +56,7 @@
       <input type="text" id="startTime" placeholder="Unix Timestamp (in ms)" ng-model="startTime"><!-- todo make a datepicker -->
     </div>
 
-    <button type="submit" class="btn btn-default" ng-click="getSeekTime(startTime, videoLength)">Get Seek Time</button>
+    <button type="submit" class="btn btn-default btn-lg" ng-click="getSeekTime(startTime, videoLength)">Get Seek Time</button>
     Seek Time: {{seekTo}}
   </form>
-
-  <iframe width="560" height="315" src="//www.youtube.com/embed/d_z2CA-o13U?list=PL55F8711DC8CFEA13&time=0m18s" frameborder="0" allowfullscreen></iframe>
 </div>

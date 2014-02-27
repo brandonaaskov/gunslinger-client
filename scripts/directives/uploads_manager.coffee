@@ -3,7 +3,11 @@ angular.module('gunslinger').directive 'uploadsManager', ($http, $timeout, $loca
   templateUrl: 'views/uploads_manager.html'
   link: (scope) ->
     scope.uploads = firebase.uploads
-    scope.uploads.$on 'loaded', ->
+    scope.uploads.$bind scope, 'uploads'
+
+    scope.uploads.$on 'loaded', (resultSet) ->
+      scope.uploads = resultSet
+      console.dir resultSet
       updateAllInWork()
 
     getUploadsForState = (collection, state) ->
@@ -33,10 +37,8 @@ angular.module('gunslinger').directive 'uploadsManager', ($http, $timeout, $loca
     scope.updateAllInWork = updateAllInWork
 
   controller: ($scope) ->
-    $scope.kickOffJob = (videoId) -> $http.post("videos/#{videoId}/publish").then (response) ->
-      $scope.updateAllInWork()
+    $scope.remove = (key) -> firebase.uploads.$remove(key)
 
-    $scope.removeUpload = (id) -> $http.delete("videos/#{id}")
-    $scope.watch = (id, state) ->
-      return unless state is 'finished'
-      $location.path("/watch/#{id}")
+    $scope.kickOffJob = (videoId) ->
+      # todo make call to zencoder
+#      $scope.updateAllInWork()

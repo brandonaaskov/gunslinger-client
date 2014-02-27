@@ -1,7 +1,7 @@
 <div class="uploader">
   <div class="upload-dropper" ng-file-drop>
     <h2 ng-if="!uploader.isUploading" class="instructions">Drop File Here</h2>
-    <div class="upload-feedback" ng-if="uploader.isUploading">
+    <div class="upload-feedback" ng-show="uploader.isUploading">
       <div class="progress">
         <div
             ng-style="{ width: uploader.progress + '%' };"
@@ -16,9 +16,9 @@
         </div> <!-- progress-bar -->
       </div> <!-- progress -->
 
-      <h2 ng-show="uploader.isUploading && uploader.progress == 100">
-        Uploading to S3 <img src="images/processing_s3_upload.gif" alt=""/>
-      </h2>
+      <!--<h2 ng-show="uploader.isUploading && uploader.progress == 100">-->
+        <!--Uploading to S3 <img src="../images/processing_s3_upload.gif" alt=""/>-->
+      <!--</h2>-->
     </div> <!-- upload feedback -->
   </div>
 </div>
