@@ -37,8 +37,7 @@ gulp.task('watch', function () {
 
 // launch this repo as a server (port 3000)
 gulp.task('serve', function () {
-  var app = connect()
-      .use(connect.static(__dirname));
+  var app = connect().use(connect.static(__dirname));
 
   http.createServer(app).listen(serverPort);
   console.log('server running on localhost:' + serverPort);

@@ -1,5 +1,5 @@
 (function() {
-  angular.module('gunslinger').service('auth', function($firebase, $firebaseSimpleLogin, $cookies, config, alerts) {
+  angular.module('gunslinger').service('auth', function($firebase, $firebaseSimpleLogin, $cookies, config) {
     var auth, hasAccount, login, updateBasic, updateComplete, updateUser, user;
     auth = $firebaseSimpleLogin(new Firebase(config.firebase["default"]));
     user = {
@@ -30,8 +30,7 @@
     };
     updateUser = function(providerDetails) {
       updateComplete(providerDetails);
-      updateBasic();
-      return alerts.dispatch("userChanged", user.basic);
+      return updateBasic();
     };
     updateComplete = function(providerDetails) {
       user.complete[providerDetails.provider] = providerDetails;

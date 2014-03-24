@@ -1,4 +1,4 @@
-angular.module('gunslinger').controller 'homeCtrl', ($scope, $cookies, firebase, $window, alerts) ->
+angular.module('gunslinger').controller 'homeCtrl', ($scope, $cookies, firebase, $window) ->
   firebase.users.$on 'loaded', (users) ->
     $scope.users = _.map users,(details) -> return details.basic
     console.log "$scope.users", $scope.users
@@ -10,4 +10,7 @@ angular.module('gunslinger').controller 'homeCtrl', ($scope, $cookies, firebase,
   firebase.getServerTime().then (offset) ->
     console.log 'offset is', offset
 
-  $scope.testAlert = -> alerts.dispatch('test')
+  $scope.alerts = [
+    type: 'danger'
+    message: 'this is a bright boy alert! repeat! a bright boy alert!'
+  ]

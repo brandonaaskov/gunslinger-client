@@ -1,5 +1,5 @@
 (function() {
-  angular.module('gunslinger').controller('homeCtrl', function($scope, $cookies, firebase, $window, alerts) {
+  angular.module('gunslinger').controller('homeCtrl', function($scope, $cookies, firebase, $window) {
     firebase.users.$on('loaded', function(users) {
       $scope.users = _.map(users, function(details) {
         return details.basic;
@@ -13,9 +13,12 @@
     firebase.getServerTime().then(function(offset) {
       return console.log('offset is', offset);
     });
-    return $scope.testAlert = function() {
-      return alerts.dispatch('test');
-    };
+    return $scope.alerts = [
+      {
+        type: 'danger',
+        message: 'this is a bright boy alert! repeat! a bright boy alert!'
+      }
+    ];
   });
 
 }).call(this);

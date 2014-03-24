@@ -1,17 +1,16 @@
 angular.module('gunslinger', [
-  'ngRoute'
+  'ui.router'
   'ngSanitize'
   'ngCookies'
   'firebase'
   'ngAnimate'
-  'mgcrea.ngStrap'
   'fs.collections'
+  'ui.bootstrap'
   ])
-.config ($routeProvider) ->
-  $routeProvider
-    .when '/',
-        templateUrl: "views/home.html"
-        controller: "homeCtrl"
+.config ($stateProvider, $urlRouterProvider) ->
+  $urlRouterProvider.otherwise "/"
 
-    .otherwise
-        redirectTo: '/'
+  $stateProvider.state '/',
+    url: '/'
+    templateUrl: 'views/home.html'
+    controller: 'homeCtrl'
