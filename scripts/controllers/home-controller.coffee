@@ -13,4 +13,15 @@ angular.module('gunslinger').controller 'homeCtrl', ($scope, $cookies, firebase,
   $scope.alerts = [
     type: 'danger'
     message: 'this is a bright boy alert! repeat! a bright boy alert!'
+  ,
+    type: 'success'
+    message: 'success!'
+  ,
+    type: 'info'
+    message: 'info'
+  ,
+    type: 'warning'
+    message: 'warning'
   ]
+
+  $scope.closeAlert = (index) -> $scope.alerts.splice index, 1
