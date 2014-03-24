@@ -1,5 +1,5 @@
 .DS_Store
 .idea
 .sass-cache
-client/scripts/config/config.coffee
-client/scripts/config/config.js
+bower_modules
+npm_modules
