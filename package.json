@@ -23,7 +23,12 @@
     "karma-chai": "0.x.x",
     "karma-sinon-chai": "0.x.x",
     "grunt-cli": "0.x.x3",
-    "grunt-shell": "0.x.x"
+    "grunt-shell": "0.x.x",
+    "lodash": "~2.4.1",
+    "gulp-plumber": "~0.5.6",
+    "gulp-coffee": "~1.4.1",
+    "gulp": "~3.5.6",
+    "connect": "~2.14.3"
   },
   "scripts": {
     "test": "karma start karma.js"

@@ -1,4 +1,4 @@
-angular.module('gunslinger').service 'auth', ($firebase, $firebaseSimpleLogin, $cookies, config, alerts) ->
+angular.module('gunslinger').service 'auth', ($firebase, $firebaseSimpleLogin, $cookies, config) ->
   auth = $firebaseSimpleLogin new Firebase(config.firebase.default)
   user =
     complete: $firebase new Firebase("#{config.firebase.users}/complete/#{$cookies.guid}")
@@ -23,7 +23,6 @@ angular.module('gunslinger').service 'auth', ($firebase, $firebaseSimpleLogin, $
   updateUser = (providerDetails) ->
     updateComplete(providerDetails)
     updateBasic()
-    alerts.dispatch "userChanged", user.basic
 
   updateComplete = (providerDetails) ->
     user.complete[providerDetails.provider] = providerDetails

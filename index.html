@@ -1,86 +1,85 @@
 <!doctype html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Gunslinger</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Gunslinger</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- the cake -->
-    <script src="bower_components/lodash/dist/lodash.min.js"></script>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
-    <script src="vendor/angular-animate.min.js"></script>
-    <script src="bower_components/firebase/firebase-debug.js"></script>
-    <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
-    <script src="bower_components/angularfire/angularfire.min.js"></script>
+  <!-- the cake -->
+  <script src="bower_components/lodash/dist/lodash.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-ui-utils/ui-utils.min.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+  <script src="vendor/angular-animate.min.js"></script>
+  <script src="bower_components/firebase/firebase-debug.js"></script>
+  <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
+  <script src="bower_components/angularfire/angularfire.min.js"></script>
 
-    <!-- the frosting -->
-    <script src="bower_components/bootstrap-sass/dist/js/bootstrap.min.js"></script>
-    <script src="vendor/angular-strap/angular-strap.min.js"></script>
-    <script src="vendor/angular-strap/angular-strap.tpl.min.js"></script>
+  <!-- the frosting -->
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body ng-app="gunslinger">
+  <div class="container">
 
-    <link rel="stylesheet" href="bower_components/bootstrap-sass/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendor/bootstrap-additions.min.css">
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.min.css">
-    <link rel="stylesheet" href="styles/main.css">
-  </head>
-  <body ng-app="gunslinger">
-    <div class="container">
+    <div id="navigation" ng-controller="accountCtrl">
+      <ul class="nav nav-pills" class="col-lg-10">
+        <li class="home"><a href="#">Home</a></li>
+      </ul>
 
-      <div id="navigation" ng-controller="accountCtrl">
-        <ul class="nav nav-pills" class="col-lg-10">
-          <li class="home"><a href="#">Home</a></li>
-        </ul>
-
-        <div class="account col-sm-2"
-             data-template="views/aside-account.html"
-             data-title="Account Stuff"
-             bs-aside>
-          <h5><a class="login" ng-if="!auth.user" ng-click="$toggle()">Login</a></h5>
-          <a class="display-name" ng-if="auth.user" ng-click="$toggle()"><i class="fa fa-gear"></i></a>
-        </div>
+      <div class="account col-sm-2"
+           data-template="views/aside-account.html"
+           data-title="Account Stuff"
+           bs-aside>
+        <h5><a class="login" ng-if="!auth.user" ng-click="$toggle()">Login</a></h5>
+        <a class="display-name" ng-if="auth.user" ng-click="$toggle()"><i class="fa fa-gear"></i></a>
       </div>
 
-      <div ng-view></div>
+      <audio id="mic" src=""></audio>
     </div>
 
-    <!-- app -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/config/config.js"></script>
+    <div ui-view></div>
+  </div>
 
-    <!-- models/collections -->
-    <script src="vendor/fs.collections/index.js"></script>
-    <script src="vendor/fs.collections/collections/base.js.js"></script>
-    <script src="vendor/fs.collections/collections/pagination_collection.js.js"></script>
-    <script src="vendor/fs.collections/models/base.js.js"></script>
-    <script src="scripts/collections/users-collection.js"></script>
-    <script src="scripts/collections/firebase-collection.js"></script>
-    <script src="scripts/models/user-model.js"></script>
+  <!-- app -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/config/config.js"></script>
 
-    <!-- controllers -->
-    <script src="scripts/controllers/home-controller.js"></script>
-    <script src="scripts/controllers/account-controller.js"></script>
+  <!-- models/collections -->
+  <script src="vendor/fs.collections/index.js"></script>
+  <script src="vendor/fs.collections/collections/base.js.js"></script>
+  <script src="vendor/fs.collections/collections/pagination_collection.js.js"></script>
+  <script src="vendor/fs.collections/models/base.js.js"></script>
+  <script src="scripts/collections/users-collection.js"></script>
+  <script src="scripts/collections/firebase-collection.js"></script>
+  <script src="scripts/models/user-model.js"></script>
 
-    <!-- directives -->
-    <script src="scripts/directives/contenteditable.js"></script>
+  <!-- controllers -->
+  <script src="scripts/controllers/home-controller.js"></script>
+  <script src="scripts/controllers/account-controller.js"></script>
 
-    <!-- services -->
-    <script src="scripts/services/firebase.js"></script>
-    <script src="scripts/services/auth.js"></script>
-    <script src="scripts/services/zencoder.js"></script>
-    <script src="scripts/services/analytics.js"></script>
-    <script src="scripts/services/alerts.js"></script>
+  <!-- directives -->
+  <script src="scripts/directives/contenteditable.js"></script>
 
-    <!-- filters -->
+  <!-- services -->
+  <script src="scripts/services/firebase.js"></script>
+  <script src="scripts/services/auth.js"></script>
+  <script src="scripts/services/zencoder.js"></script>
+  <script src="scripts/services/analytics.js"></script>
+  <script src="scripts/services/live-sync.js"></script>
 
-    <!-- footer scripts -->
-    <script type="text/javascript">
-      window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(a){return function(){var t=Array.prototype.slice.call(arguments);return t.unshift(a),window.analytics.push(t),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(a){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+a+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)},window.analytics.SNIPPET_VERSION="2.0.8";
-    </script>
-  </body>
+  <!-- filters -->
+
+  <!-- footer scripts -->
+  <script type="text/javascript">
+    window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(a){return function(){var t=Array.prototype.slice.call(arguments);return t.unshift(a),window.analytics.push(t),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(a){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+a+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)},window.analytics.SNIPPET_VERSION="2.0.8";
+  </script>
+</body>
 </html>
