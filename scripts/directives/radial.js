@@ -3,35 +3,36 @@
   angular.module('gunslinger').directive('radial', function() {
     return {
       restrict: 'E',
-      templateUrl: 'templates/radial.html',
+      templateUrl: '../views/radial.html',
       scope: {
-        width: '=',
-        height: '=',
         radius: '=',
-        lineWidth: '=',
-        backgroundColor: '=',
-        color: '='
+        lineWidth: '='
       },
       link: function(scope, element) {
-        var canvas, context, endingAngle, getRadians, height, lineWidth, radius, startingAngle, width;
-        width = scope.width ? scope.width : 100;
-        height = scope.width ? scope.width : 100;
-        scope.width = width;
-        scope.height = height;
-        radius = scope.radius ? scope.radius : width / 2;
-        lineWidth = scope.lineWidth ? scope.lineWidth : 10;
-        startingAngle = 0;
-        endingAngle = -270;
+        var bgColor, canvas, color, context, drawArc, getRadians, lineWidth, radius, xCoord, yCoord;
+        bgColor = '#222';
+        color = '#ff0000';
         canvas = angular.element(element).find('canvas').get(0);
         context = canvas.getContext('2d');
+        lineWidth = scope.lineWidth ? scope.lineWidth : 10;
+        xCoord = scope.radius;
+        yCoord = scope.radius;
+        radius = scope.radius - lineWidth;
         getRadians = function(degrees) {
           return degrees * Math.PI / 180;
         };
-        context.beginPath();
-        context.strokeStyle = "#00ff00";
-        context.lineWidth = lineWidth;
-        context.arc(width, height, radius, startingAngle, endingAngle, Math.PI * 2);
-        return context.stroke();
+        drawArc = function(startingAngleInDegrees, endingAngleInDegrees, arcColor) {
+          var endAngle, startAngle;
+          context.beginPath();
+          context.strokeStyle = arcColor;
+          context.lineWidth = lineWidth;
+          startAngle = getRadians(startingAngleInDegrees);
+          endAngle = getRadians(endingAngleInDegrees);
+          context.arc(xCoord, yCoord, radius, startAngle, endAngle);
+          return context.stroke();
+        };
+        drawArc(-270, 90, bgColor);
+        return drawArc(90, -210, color);
       }
     };
   });
