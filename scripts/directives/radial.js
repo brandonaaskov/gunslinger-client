@@ -1,14 +1,15 @@
 (function() {
   angular.module('gunslinger').directive('radial', function($timeout) {
-    var bgColor, canvas, color, context, lineWidth, radius, xCoord, yCoord;
+    var bgColor, canvas, color, context, lineWidth, margin, radius, xCoord, yCoord;
     bgColor = '#e7cfad';
     color = '#efac4a';
     canvas = void 0;
     context = void 0;
-    lineWidth = void 0;
-    radius = void 0;
-    xCoord = 0;
-    yCoord = 0;
+    radius = 100;
+    lineWidth = 20;
+    xCoord = void 0;
+    yCoord = void 0;
+    margin = void 0;
     return {
       restrict: 'E',
       replace: true,
@@ -22,55 +23,78 @@
         var edgeLength;
         canvas = angular.element(element).get(0);
         context = canvas.getContext('2d');
-        lineWidth = scope.lineWidth || 20;
-        radius = (scope.radius || 100) - lineWidth;
+        if (scope.radius) {
+          radius = scope.radius;
+        }
+        if (scope.lineWidth) {
+          lineWidth = scope.lineWidth;
+        }
         edgeLength = (radius + lineWidth) * 2;
-        console.log('resize canvas to', edgeLength);
         canvas.width = edgeLength;
         canvas.height = edgeLength;
-        xCoord = scope.radius;
-        return yCoord = scope.radius;
+        xCoord = radius + lineWidth;
+        yCoord = radius + lineWidth;
+        return margin = lineWidth / 4;
       },
       controller: function($scope) {
-        var addText, drawArc, getFontSize, getRadians;
+        var addText, clearCanvas, drawArc, drawBackground, drawMeter, getDegrees, getFontSize, getRadians;
+        getDegrees = function(percent) {
+          if (percent == null) {
+            percent = $scope.percentComplete;
+          }
+          if (!_.isNumber(percent)) {
+            return;
+          }
+          return (percent * 360) / 100;
+        };
         getRadians = function(degrees) {
           return degrees * Math.PI / 180;
         };
         getFontSize = function() {
-          return ($scope.radius * 40) / 100;
+          return (radius + (lineWidth * 2)) * 40 / 100;
         };
-        drawArc = function(startingAngleInDegrees, endingAngleInDegrees, arcColor, lineCap) {
+        clearCanvas = function() {
+          return canvas.width = canvas.width;
+        };
+        drawArc = function(startingAngleInDegrees, endingAngleInDegrees, arcColor) {
           var endAngle, startAngle;
-          if (lineCap == null) {
-            lineCap = 'butt';
-          }
           context.beginPath();
           context.strokeStyle = arcColor;
           context.lineWidth = lineWidth / 2;
-          context.lineCap = lineCap;
+          context.lineCap = 'butt';
           startAngle = getRadians(startingAngleInDegrees);
           endAngle = getRadians(endingAngleInDegrees);
+          console.log('drawing arc', [xCoord, yCoord, radius, startAngle, endAngle]);
           context.arc(xCoord, yCoord, radius, startAngle, endAngle);
           return context.stroke();
         };
+        drawBackground = function() {
+          return drawArc(-270, 90, bgColor);
+        };
+        drawMeter = function() {
+          var endDegrees;
+          clearCanvas();
+          drawBackground();
+          endDegrees = 90 + getDegrees($scope.percentComplete);
+          console.log("drawing arc to " + endDegrees + " degrees");
+          drawArc(90, endDegrees, color);
+          return addText($scope.percentComplete);
+        };
         addText = function(percentComplete, fontFamily) {
-          var fontSize, text;
+          var fontSize;
           if (fontFamily == null) {
-            fontFamily = 'Proxima Nova';
+            fontFamily = 'Proxima Nova, Arial, sans_serif';
           }
           context.fillStyle = color;
           fontSize = getFontSize();
           context.font = "" + fontSize + "px " + fontFamily;
           context.textAlign = 'center';
           context.textBaseline = 'middle';
-          text = percentComplete + '%';
-          return context.fillText(text, xCoord, yCoord);
+          return context.fillText("" + percentComplete + "%", xCoord, yCoord + margin);
         };
         return $timeout(function() {
-          drawArc(-270, 90, bgColor);
-          drawArc(90, -210, color);
-          return addText(15);
-        }, 0);
+          return drawMeter();
+        }, $scope.drawMeter = drawMeter);
       }
     };
   });
